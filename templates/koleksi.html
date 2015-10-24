@@ -1,0 +1,21 @@
+<ion-view view-title="Koleksi Buku">
+	<ion-content>
+		
+		<div class="cards books">
+			<div class="card book" ng-repeat="n in [1,2,3,4,5,6,7,8,9,10]" ng-click="openBook(n)">
+				<div class="thumbnail" ng-style="{backgroundImage: 'url(img/asset/tumbnailCourse2.png)'}">
+				</div>
+				<div class="detail">
+					<div class="title">Mencari buku Yang Hlang asd asd  {{n}}</div>
+					<div class="info">By Thomas A. Edison</div>
+					<div class="info">Tersedia : 2 dari 10 buku</div>
+					<div class="info">Rating : 4/5 (34)</div>
+					<div class="info">13 Review</div>
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>
+
+

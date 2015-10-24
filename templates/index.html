@@ -1,0 +1,68 @@
+<ion-side-menus enable-menu-with-back-views="false">
+	<ion-side-menu-content>
+		<ion-nav-bar class="barTopMenu">
+			<ion-nav-back-button ng-show="isBackButtonShow()">
+			</ion-nav-back-button>
+
+			<ion-nav-buttons side="left">
+				<a class="icon ion-navicon" menu-toggle="left" ng-hide="isBackButtonShow()">
+				</a>
+			</ion-nav-buttons>
+		</ion-nav-bar>
+		<ion-nav-view name="content"></ion-nav-view>
+	</ion-side-menu-content>
+
+	<ion-side-menu side="left">
+		<ion-header-bar class="profile">
+			<div class="avatar">
+				<img src="img/default-user-image.png" alt="">
+			</div>
+			<div class="info">
+				<div class="name">Afief Yona Ramadhana</div>
+				<div class="email">0806935</div>
+			</div>
+		</ion-header-bar>
+		<ion-content class="viewListSideBar">
+			<div class="list">
+
+				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/myCourses">
+					<span class="icon ion-person"></span>
+					<span>Profil Pribadi</span>
+				</a>
+
+				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/koleksi">
+					<span class="icon ion-ios-photos"></span>
+					<span>Koleksi Buku</span>
+				</a>
+
+				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/myCourses">
+					<span class="icon ion-android-notifications"></span>
+					<span>Pemberitahuan</span>
+				</a>
+
+				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/myCourses">
+					<span class="icon ion-ios-book"></span>
+					<span>Buku Pinjaman</span>
+				</a>
+
+				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/myCourses">
+					<span class="icon ion-ios-heart"></span>
+					<span>Buku Favorit</span>
+				</a>
+
+				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/myCourses">
+					<span class="icon ion-android-star-half"></span>
+					<span>Review</span>
+				</a>
+
+				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/myCourses">
+					<span class="icon ion-android-options"></span>
+					<span>Pengaturan</span>
+				</a>
+
+			</div>
+		</ion-content>
+
+		
+	</ion-side-menu>
+</ion-side-menus>
