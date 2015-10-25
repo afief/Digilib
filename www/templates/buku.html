@@ -35,7 +35,7 @@
 			</div>
 
 			<div class="wrapper rating-create">
-				<h4>Beri Rating</h4>
+				<h4>Beri Review</h4>
 				<div class="stars">
 					<span ng-click="setRating(1)" class="star icon" ng-class="{'ion-android-star': (rating >= 1), 'ion-android-star-half': ((rating >= 0.3) && (rating < 0.7)), 'ion-android-star-outline': (rating < 0.3)}"></span>
 					<span ng-click="setRating(2)" class="star icon" ng-class="{'ion-android-star': (rating >= 2), 'ion-android-star-half': ((rating >= 1.3) && (rating < 1.7)), 'ion-android-star-outline': (rating < 1.3)}"></span>
@@ -43,6 +43,8 @@
 					<span ng-click="setRating(4)" class="star icon" ng-class="{'ion-android-star': (rating >= 3), 'ion-android-star-half': ((rating >= 3.3) && (rating < 3.7)), 'ion-android-star-outline': (rating < 3.3)}"></span>
 					<span ng-click="setRating(5)" class="star icon" ng-class="{'ion-android-star': (rating >= 4), 'ion-android-star-half': ((rating >= 4.3) && (rating < 4.7)), 'ion-android-star-outline': (rating < 4.3)}"></span>
 				</div>
+				
+				<textarea placeholder="Feedback" style="height: 100px; width: 100%; padding: 10px; box-shadow: 1px 1px 7px -4px #444;"></textarea>
 			</div>
 
 			<div class="wrapper">

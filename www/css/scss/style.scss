@@ -90,8 +90,28 @@ body {
 		}
 	}
 	.view-container {
+		
 		ion-content {
 			background-color: $color-main-lightest;
+			.header {
+				padding: 10px 10px 10px 10px;
+				position: relative;
+				display: table;
+				width: 100%;
+				color: $color-main;
+				.icon {
+					font-size: 2em;
+					float: left;
+					padding: 10px 20px 10px 20px;
+				}
+				.title {
+					float: left;
+					padding: 14px 0px;
+					font-size: 1.2em;
+					font-weight: bold;
+					line-height: 1.1em;
+				}
+			}
 		}
 	}
 }
@@ -102,6 +122,7 @@ body {
 		box-sizing: border-box;
 		background-color: white;
 		padding: 10px;
+		margin: 0px 10px 20px 10px;
 		.thumbnail {
 			float: left;
 			width: 30%;
@@ -225,7 +246,7 @@ body {
 			}
 			.text {
 				display: inline-block;
-				margin-left: 5px;
+				line-height: 1em;
 			}
 		}
 	}

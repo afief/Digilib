@@ -50,6 +50,16 @@ angular.module('digilib', ['ionic', 'controllers', 'UserModule'])
 		}
 	})
 
+	.state('app.pesan', {
+		url: '/pesan',
+		views: {
+			content: {
+				templateUrl: 'templates/pesan.html',
+				controller: 'PesanController'
+			}
+		}
+	})
+
 	.state('app.pemberitahuan', {
 		url: '/pemberitahuan',
 		views: {
@@ -66,6 +76,26 @@ angular.module('digilib', ['ionic', 'controllers', 'UserModule'])
 			content: {
 				templateUrl: 'templates/pinjaman.html',
 				controller: 'PinjamanController'
+			}
+		}
+	})
+
+	.state('app.favorit', {
+		url: '/favorit',
+		views: {
+			content: {
+				templateUrl: 'templates/favorit.html',
+				controller: 'FavoritController'
+			}
+		}
+	})
+
+	.state('app.send_feedback', {
+		url: '/send-feedback',
+		views: {
+			content: {
+				templateUrl: 'templates/send-feedback.html',
+				controller: 'SendFeedbackController'
 			}
 		}
 	})

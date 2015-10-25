@@ -1,0 +1,31 @@
+<ion-view view-title="Pesan">
+	<ion-content>
+		<div class="header">
+			<div class="icon ion-ios-email">
+			</div>
+			<div class="title">2 Pesan</div>
+		</div>
+
+		<div class="notif-page">
+			<div class="wrapper">
+				<div class="notifications">
+
+					<div class="notification" ng-repeat="msg in messages track by $index">
+						<div class="avatar">
+							<img src="img/default-user-image.png" alt="">
+						</div>
+						<div class="detail">
+							<div class="text"><b>{{msg.name}}</b></div>
+							<div class="date">{{msg.date}}</div>
+							<div class="text">{{msg.content}}</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>
+
+

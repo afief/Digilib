@@ -1,6 +1,12 @@
 <ion-view view-title="Buku Pinjaman">
 	<ion-content>
 
+		<div class="header">
+			<div class="icon ion-ios-book">
+			</div>
+			<div class="title">Daftar Buku Dipinjam</div>
+		</div>
+
 		<div class="cards books">
 			<div class="card book" ng-repeat="book in borroweds track by $index">
 				<div class="thumbnail" ng-style="{backgroundImage: 'url(img/asset/tumbnailCourse2.png)'}">

@@ -86,6 +86,21 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, u
 	}
 	];
 
+	$scope.messages = [
+	{
+		name: "Admin",
+		date: "10 Oktober 2015",
+		subject: "Teguran",
+		content: "Buku `Merajut Untaian Rindu` telah melebihi waktu pengembalian."
+	},
+	{
+		name: "Admin",
+		date: "3 Oktober 2015",
+		subject: "Respon Tanggapan",
+		content: "Terimakasih telah memberikan tanggapan pada tanggal 2 Oktober 2015. Kami akan terus memperbaiki aplikasi ini menjadi lebih baik. Terima kasih."
+	}
+	];
+
 
 	$scope.borroweds = [
 	{

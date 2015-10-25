@@ -1,11 +1,10 @@
-<ion-view view-title="Koleksi Buku">
+<ion-view view-title="Buku Favorit">
 	<ion-content>
 
-		<div class="list list-inset">
-			<label class="item item-input">
-				<i class="icon ion-search placeholder-icon"></i>
-				<input type="text" placeholder="Cari Buku">
-			</label>
+		<div class="header">
+			<div class="icon ion-ios-heart">
+			</div>
+			<div class="title">Daftar Buku Difavoritkan</div>
 		</div>
 		
 		<div class="cards books">
@@ -23,6 +22,9 @@
 						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 4), 'ion-android-star-half': ((book.rating >= 4.3) && (book.rating < 4.7)), 'ion-android-star-outline': (book.rating < 4.3)}"></span>
 						{{book.rating}}
 					</div>
+					<div class="info">{{book.pages_count}} Halaman</div>
+					<div class="info">ISBN : {{book.isbn}}</div>
+					<div class="info">Tahun : {{book.year}}</div>
 					<div class="info">Tersedia : <b>{{book.stock.available}}</b> dari <b>{{book.stock.total}}</b> buku</div>
 					<div class="info">{{book.review_count}} Review</div>
 				</div>

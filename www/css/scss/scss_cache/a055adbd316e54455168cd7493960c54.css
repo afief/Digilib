@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.0.9 on Sun, 25 Oct 2015 04:24:16 +0100 (0.0582s) */
+/* compiled by scssphp v0.0.9 on Sun, 25 Oct 2015 07:52:38 +0100 (0.0524s) */
 
 .button {
   position: relative; }
@@ -78,12 +78,29 @@ body {
       margin-right: 10px; }
   .view .view-container ion-content {
     background-color: #f6f7fd; }
+  .view .view-container ion-content .header {
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    display: table;
+    width: 100%;
+    color: #387ef5; }
+  .view .view-container ion-content .header .icon {
+    font-size: 2em;
+    float: left;
+    padding: 10px 20px 10px 20px; }
+  .view .view-container ion-content .header .title {
+    float: left;
+    padding: 14px 0px;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.1em; }
 
 .books .book {
   position: relative;
   box-sizing: border-box;
   background-color: white;
-  padding: 10px; }
+  padding: 10px;
+  margin: 0px 10px 20px 10px; }
   .books .book .thumbnail {
     float: left;
     width: 30%;
@@ -175,4 +192,4 @@ body {
     font-size: 1em; }
   .comments .notification .detail .text, .notifications .notification .detail .text {
     display: inline-block;
-    margin-left: 5px; }
+    line-height: 1em; }
