@@ -40,6 +40,16 @@ angular.module('digilib', ['ionic', 'controllers', 'UserModule'])
 		}
 	})
 
+	.state('app.profil', {
+		url: '/profil',
+		views: {
+			content: {
+				templateUrl: 'templates/profil.html',
+				controller: 'ProfilController'
+			}
+		}
+	})
+
 	.state('app.buku', {
 		url: '/buku/:id',
 		views: {

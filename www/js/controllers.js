@@ -7,7 +7,7 @@ controll.run(function($ionicPlatform, $ionicHistory, $rootScope) {
 /*
 Main Controller
 */
-controll.controller('IndexController', function($scope, $state, $ionicHistory, user) {
+controll.controller('IndexController', function($scope, $state, $ionicHistory, $location, $ionicSideMenuDelegate, user) {
 	console.info("IndexController");
 
 	$scope.$on('$ionicView.enter', function(e, ts) {
@@ -19,6 +19,12 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, u
 
 	$scope.isBackButtonShow = function() {
 		return $ionicHistory.backView() != null;
+	}
+	$scope.changeState = function(to) {
+		if ($ionicSideMenuDelegate.isOpenLeft()) {
+			$ionicSideMenuDelegate.toggleLeft();
+		}
+		$state.go(to);
 	}
 
 
