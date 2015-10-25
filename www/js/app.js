@@ -48,7 +48,28 @@ angular.module('digilib', ['ionic', 'controllers', 'UserModule'])
 				controller: 'BukuController'
 			}
 		}
-	});
+	})
+
+	.state('app.pemberitahuan', {
+		url: '/pemberitahuan',
+		views: {
+			content: {
+				templateUrl: 'templates/pemberitahuan.html',
+				controller: 'PemberitahuanController'
+			}
+		}
+	})
+
+	.state('app.pinjaman', {
+		url: '/pinjaman',
+		views: {
+			content: {
+				templateUrl: 'templates/pinjaman.html',
+				controller: 'PinjamanController'
+			}
+		}
+	})
+	;
 
 	$urlRouterProvider.otherwise('/app/koleksi');
   

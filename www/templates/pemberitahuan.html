@@ -1,0 +1,25 @@
+<ion-view view-title="Pemberitahuan">
+	<ion-content>
+		<div class="notif-page">
+			<div class="wrapper">
+				<div class="notifications">
+
+					<div class="notification" ng-repeat="review in reviews track by $index">
+						<div class="avatar">
+							<img src="img/default-user-image.png" alt="">
+						</div>
+						<div class="detail">
+							<div class="name">{{review.name}}</div>
+							<div class="text">mengomentari review anda</div>
+							<div class="date">{{review.date}}</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>
+
+

@@ -1,0 +1,24 @@
+<ion-view view-title="Buku Pinjaman">
+	<ion-content>
+
+		<div class="cards books">
+			<div class="card book" ng-repeat="book in borroweds track by $index">
+				<div class="thumbnail" ng-style="{backgroundImage: 'url(img/asset/tumbnailCourse2.png)'}">
+				</div>
+				<div class="detail">
+					<div class="title">{{book.title}}</div>
+					<div class="info">by {{book.author}}</div>
+
+					<div class="info">{{book.pages_count}} Halaman</div>
+					<div class="info">ISBN : {{book.isbn}}</div>
+
+					<div class="info">Peminjaman : <b>{{book.date_borrow}}</b></div>
+					<div class="info">Pengembalian  : <b>{{book.date_return}}</b></div>
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>
+
+

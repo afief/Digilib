@@ -1,6 +1,82 @@
-<ion-view view-title="Buku">
+<ion-view view-title="{{book.title}}">
 	<ion-content>
-		Buku {{id}}
+		<div class="book-detail">
+			<div class="title">{{book.title}}</div>
+			<div class="author">by {{book.author}}</div>
+			<div class="wrapper">
+				<div class="thumbnail" ng-style="{backgroundImage: 'url(img/asset/tumbnailCourse2.png)'}">
+				</div>
+				<div class="detail">
+					<div class="info stars">
+						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 1), 'ion-android-star-half': ((book.rating >= 0.3) && (book.rating < 0.7)), 'ion-android-star-outline': (book.rating < 0.3)}"></span>
+						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 2), 'ion-android-star-half': ((book.rating >= 1.3) && (book.rating < 1.7)), 'ion-android-star-outline': (book.rating < 1.3)}"></span>
+						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 2), 'ion-android-star-half': ((book.rating >= 2.3) && (book.rating < 2.7)), 'ion-android-star-outline': (book.rating < 2.3)}"></span>
+						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 3), 'ion-android-star-half': ((book.rating >= 3.3) && (book.rating < 3.7)), 'ion-android-star-outline': (book.rating < 3.3)}"></span>
+						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 4), 'ion-android-star-half': ((book.rating >= 4.3) && (book.rating < 4.7)), 'ion-android-star-outline': (book.rating < 4.3)}"></span>
+						{{book.rating}}
+					</div>
+					<div class="info">{{book.pages_count}} Halaman</div>
+					<div class="info">ISBN : {{book.isbn}}</div>
+					<div class="info">Tahun : {{book.year}}</div>
+					<div class="info">Tersedia : <b>{{book.stock.available}}</b> dari <b>{{book.stock.total}}</b> buku</div>
+					<div class="info">{{book.review_count}} Review</div>
+				</div>
+			</div>
+
+			<div class="buttons buttons-double">
+				<button class="button button-positive" ng-click="isFavorit = !isFavorit">
+					<span class="icon" ng-class="{'ion-ios-heart': isFavorit, 'ion-ios-heart-outline': !isFavorit}"></span>
+					<span>Favorit</span>
+				</button>
+				<button class="button button-positive">
+					<span class="icon ion-share"></span>
+					<span>Share</span>
+				</button>
+			</div>
+
+			<div class="wrapper rating-create">
+				<h4>Beri Rating</h4>
+				<div class="stars">
+					<span ng-click="setRating(1)" class="star icon" ng-class="{'ion-android-star': (rating >= 1), 'ion-android-star-half': ((rating >= 0.3) && (rating < 0.7)), 'ion-android-star-outline': (rating < 0.3)}"></span>
+					<span ng-click="setRating(2)" class="star icon" ng-class="{'ion-android-star': (rating >= 2), 'ion-android-star-half': ((rating >= 1.3) && (rating < 1.7)), 'ion-android-star-outline': (rating < 1.3)}"></span>
+					<span ng-click="setRating(3)" class="star icon" ng-class="{'ion-android-star': (rating >= 2), 'ion-android-star-half': ((rating >= 2.3) && (rating < 2.7)), 'ion-android-star-outline': (rating < 2.3)}"></span>
+					<span ng-click="setRating(4)" class="star icon" ng-class="{'ion-android-star': (rating >= 3), 'ion-android-star-half': ((rating >= 3.3) && (rating < 3.7)), 'ion-android-star-outline': (rating < 3.3)}"></span>
+					<span ng-click="setRating(5)" class="star icon" ng-class="{'ion-android-star': (rating >= 4), 'ion-android-star-half': ((rating >= 4.3) && (rating < 4.7)), 'ion-android-star-outline': (rating < 4.3)}"></span>
+				</div>
+			</div>
+
+			<div class="wrapper">
+				<h4>Review</h4>
+				<div class="comments">
+
+					<div class="comment" ng-repeat="review in reviews track by $index">
+						<div class="avatar">
+							<img src="img/default-user-image.png" alt="">
+						</div>
+						<div class="detail">
+							<div class="name">{{review.name}}</div>
+							<div class="date">{{review.date}}</div>
+							<div class="content">
+								{{review.content}}
+							</div>
+							<div class="buttons">
+								<button class="button button-clear" ng-class="{'button-stable': !review.like, 'button-positive': review.like}" ng-click="review.like = !review.like">
+									<span class="icon ion-thumbsup"></span>
+									<span>Like</span>
+								</button>
+
+								<button class="button button-clear button-positive">
+									<span class="icon ion-reply"></span>
+									<span>Reply</span>
+								</button>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	</ion-content>
 </ion-view>
 
