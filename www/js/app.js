@@ -109,6 +109,16 @@ angular.module('digilib', ['ionic', 'controllers', 'UserModule'])
 			}
 		}
 	})
+
+	.state('app.pengaturan', {
+		url: '/pengaturan',
+		views: {
+			content: {
+				templateUrl: 'templates/pengaturan.html',
+				controller: 'PengaturanController'
+			}
+		}
+	})
 	;
 
 	$urlRouterProvider.otherwise('/app/koleksi');

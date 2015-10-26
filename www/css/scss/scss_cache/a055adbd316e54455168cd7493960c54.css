@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.0.9 on Sun, 25 Oct 2015 07:52:38 +0100 (0.0524s) */
+/* compiled by scssphp v0.0.9 on Mon, 26 Oct 2015 06:06:16 +0100 (0.0602s) */
 
 .button {
   position: relative; }
@@ -20,6 +20,14 @@
     margin-right: 2%;
     box-sizing: border-box;
     float: left; }
+
+.row {
+  padding: 10px; }
+
+.info .item-icon-right .icon {
+  right: 11px;
+  font-size: 1.2em;
+  font-weight: bold; }
 
 body {
   font-family: "RobotoDraft", sans-serif; }
@@ -193,3 +201,13 @@ body {
   .comments .notification .detail .text, .notifications .notification .detail .text {
     display: inline-block;
     line-height: 1em; }
+
+.user-profil .wrapper .name {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #387ef5; }
+  .user-profil .wrapper .nip {
+    color: #387ef5;
+    font-size: 1.1em; }
+  .user-profil .wrapper .avatar img {
+    width: 100%; }
