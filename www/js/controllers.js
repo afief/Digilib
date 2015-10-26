@@ -31,8 +31,9 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 	/* SAMPLE DATA */
 	$scope.books = [
 	{
-		title: "Merajut Untaian Rindu",
-		author: "Alibaba Everest",
+		title: "Boneshaker",
+		author: "Cherie Priest",
+		thumbnail: "img/books/book1.jpg",
 		rating: 3.5,
 		review_count: 15,
 		stock: {
@@ -41,11 +42,13 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 		},
 		pages_count: 300,
 		isbn: "9785412654856",
-		year: 2000
+		year: 2000,
+		shelf_number: 4.1,
 	},
 	{
-		title: "Merajut Untaian Rindu",
-		author: "Alibaba Everest",
+		title: "The Anubis Gates",
+		author: "Tim Powers",
+		thumbnail: "img/books/book2.jpg",
 		rating: 2.5,
 		review_count: 17,
 		stock: {
@@ -54,11 +57,13 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 		},
 		pages_count: 250,
 		isbn: "9856327594524",
-		year: 2010
+		year: 2010,
+		shelf_number: 5.324
 	},
 	{
-		title: "Merajut Untaian Rindu",
-		author: "Alibaba Everest",
+		title: "The Time Traveler's Wife",
+		author: "Audrey Niffenegger",
+		thumbnail: "img/books/book3.jpg",
 		rating: 4,
 		review_count: 5,
 		stock: {
@@ -67,7 +72,23 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 		},
 		pages_count: 270,
 		isbn: "9785454896326",
-		year: 2013
+		year: 2013,
+		shelf_number: 2.43
+	},
+	{
+		title: "Fortune's Rocks",
+		author: "Anita Shreve",
+		thumbnail: "img/books/book4.jpg",
+		rating: 4,
+		review_count: 5,
+		stock: {
+			available: 15,
+			total: 40
+		},
+		pages_count: 270,
+		isbn: "9785454896326",
+		year: 2013,
+		shelf_number: 8.23
 	}
 	];
 
@@ -110,8 +131,9 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 
 	$scope.borroweds = [
 	{
-		title: "Kertas Serba Bisa",
-		author: "John Lennon",		
+		title: "The Forever War",
+		author: "Joe Haldeman",		
+		thumbnail: "img/books/book5.jpg",
 		pages_count: 300,
 		isbn: "9785412654856",
 		year: 2000,
@@ -119,8 +141,9 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 		date_return: "10 Oktober 2015"
 	},
 	{
-		title: "Merajut Untaian Rindu",
-		author: "Alibaba Everest",		
+		title: "Ender's Game",
+		author: "Orson Scott",		
+		thumbnail: "img/books/book6.jpg",
 		pages_count: 210,
 		isbn: "9785412654856",
 		year: 2010,
@@ -130,6 +153,7 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 	{
 		title: "Merajut Untaian Rindu",
 		author: "Alibaba Everest",		
+		thumbnail: "img/books/book1.jpg",
 		pages_count: 250,
 		isbn: "9788935487965",
 		year: 2015,

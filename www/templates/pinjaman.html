@@ -9,7 +9,7 @@
 
 		<div class="cards books">
 			<div class="card book" ng-repeat="book in borroweds track by $index">
-				<div class="thumbnail" ng-style="{backgroundImage: 'url(img/asset/tumbnailCourse2.png)'}">
+				<div class="thumbnail" ng-style="{backgroundImage: 'url(' + book.thumbnail + ')'}">
 				</div>
 				<div class="detail">
 					<div class="title">{{book.title}}</div>

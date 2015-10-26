@@ -1,7 +1,6 @@
-angular.module('digilib', ['ionic', 'controllers', 'UserModule'])
+var mainApp = angular.module('digilib', ['ionic', 'controllers', 'UserModule']);
 
-.run(function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope) {
-	//$ionicConfig.views.transition("ios");
+mainApp.run(function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope) {
 
 	$ionicPlatform.ready(function() {
 
@@ -17,9 +16,13 @@ angular.module('digilib', ['ionic', 'controllers', 'UserModule'])
 
 	//$rootScope.user = user;
 
-})
+});
 
-.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
+mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+	$ionicConfigProvider.views.transition('ios');
+    $ionicConfigProvider.tabs.style('standard').position('bottom');
+    $ionicConfigProvider.navBar.alignTitle('center').positionPrimaryButtons('left');
+
 	$stateProvider
 
 	.state('app', {

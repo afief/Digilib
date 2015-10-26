@@ -10,7 +10,7 @@
 		
 		<div class="cards books">
 			<div class="card book" ng-repeat="book in books track by $index" ng-click="openBook($index + 1)">
-				<div class="thumbnail" ng-style="{backgroundImage: 'url(img/asset/tumbnailCourse2.png)'}">
+				<div class="thumbnail" ng-style="{backgroundImage: 'url(' + book.thumbnail + ')'}">
 				</div>
 				<div class="detail">
 					<div class="title">{{book.title}}</div>
