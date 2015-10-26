@@ -2,16 +2,13 @@
 	<ion-content>
 		<div class="notif-page">
 			<div class="wrapper">
-				<div class="notifications">
+				<div class="list notifications">
 
-					<div class="notification" ng-repeat="review in reviews track by $index">
-						<div class="avatar">
-							<img src="img/default-user-image.png" alt="">
-						</div>
-						<div class="detail">
-							<div class="text"><b>{{review.name}}</b> mengomentari review anda</div>
-							<div class="date">{{review.date}}</div>
-						</div>
+					<div class="item item-avatar" ng-repeat="review in reviews track by $index">
+						<img ng-src="{{review.thumbnail}}" alt="">
+						
+						<h2><b>{{review.name}}</b> Mengomentari Review Anda</h2>
+						<p>{{review.date}}</p>							
 					</div>
 
 				</div>

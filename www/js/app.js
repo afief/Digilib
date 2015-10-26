@@ -19,7 +19,7 @@ mainApp.run(function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope) {
 });
 
 mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-	$ionicConfigProvider.views.transition('ios');
+	//$ionicConfigProvider.views.transition('ios');
     $ionicConfigProvider.tabs.style('standard').position('bottom');
     $ionicConfigProvider.navBar.alignTitle('center').positionPrimaryButtons('left');
 
@@ -39,6 +39,16 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 			content: {
 				templateUrl: 'templates/koleksi.html',
 				controller: 'KoleksiController'
+			}
+		}
+	})
+
+	.state('app.login', {
+		url: '/login',
+		views: {
+			content: {
+				templateUrl: 'templates/login.html',
+				controller: 'LoginController'
 			}
 		}
 	})

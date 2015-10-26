@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.myapp703156" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>myApp</name>
+  <name>Digital Library</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Digitalize Library
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="ramacyber@gmail.com" href="http://afief.net">
+      Afief Yona Ramadhana
     </author>
   <content src="index.html"/>
   <access origin="*"/>

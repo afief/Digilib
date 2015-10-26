@@ -97,19 +97,22 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 		name: "Afief Yona R",
 		date: "10 Oktober 2015",
 		content: "Proin euismod sapien quis libero luctus elementum. Mauris semper ullamcorper porta. Integer aliquam ullamcorper ante vel convallis. Fusce nec lacus quis mi accumsan lobortis. Aliquam erat volutpat. Nunc condimentum pharetra accumsan. Suspendisse pharetra convallis dui, eu faucibus eros rhoncus nec.",
-		like: false
+		like: false,
+		thumbnail: "img/afief.jpg"
 	},
 	{
-		name: "Ronald Widjaja",
+		name: "Rizky Djati M",
 		date: "9 Agustus 2015",
 		content: "Proin euismod sapien quis libero luctus elementum. Mauris semper ullamcorper porta. Integer aliquam ullamcorper ante vel convallis. Fusce nec lacus quis mi accumsan lobortis. Aliquam erat volutpat. Nunc condimentum pharetra accumsan. Suspendisse pharetra convallis dui, eu faucibus eros rhoncus nec.",
-		like: true
+		like: true,
+		thumbnail: "img/djati.jpg"
 	},
 	{
 		name: "Henida W",
 		date: "6 Agustus 2015",
 		content: "Proin euismod sapien quis libero luctus elementum. Mauris semper ullamcorper porta. Integer aliquam ullamcorper ante vel convallis. Fusce nec lacus quis mi accumsan lobortis. Aliquam erat volutpat. Nunc condimentum pharetra accumsan. Suspendisse pharetra convallis dui, eu faucibus eros rhoncus nec.",
-		like: false
+		like: false,
+		thumbnail: "img/nurul.jpg"
 	}
 	];
 
@@ -118,13 +121,15 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 		name: "Admin",
 		date: "10 Oktober 2015",
 		subject: "Teguran",
-		content: "Buku `Merajut Untaian Rindu` telah melebihi waktu pengembalian."
+		content: "Buku `Merajut Untaian Rindu` telah melebihi waktu pengembalian.",
+		thumbnail: "img/djati.jpg"
 	},
 	{
 		name: "Admin",
 		date: "3 Oktober 2015",
 		subject: "Respon Tanggapan",
-		content: "Terimakasih telah memberikan tanggapan pada tanggal 2 Oktober 2015. Kami akan terus memperbaiki aplikasi ini menjadi lebih baik. Terima kasih."
+		content: "Terimakasih telah memberikan tanggapan pada tanggal 2 Oktober 2015. Kami akan terus memperbaiki aplikasi ini menjadi lebih baik. Terima kasih.",
+		thumbnail: "img/nurul.jpg"
 	}
 	];
 

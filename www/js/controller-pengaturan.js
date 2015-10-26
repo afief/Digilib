@@ -3,4 +3,9 @@ controll.controller('PengaturanController', function($scope, $state, $ionicHisto
 
 	$ionicHistory.clearHistory();
 
+
+	$scope.doLogout = function() {
+		$state.go("app.login");
+	}
+
 });

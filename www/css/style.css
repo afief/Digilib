@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.0.9 on Mon, 26 Oct 2015 13:28:59 +0100 (0.0723s) */
+/* compiled by scssphp v0.0.9 on Mon, 26 Oct 2015 06:54:08 +0100 (0.0892s) */
 
 .button {
   position: relative; }
@@ -53,8 +53,7 @@ body {
   .view .menu ion-header-bar.profile .avatar {
     width: 40px;
     margin: 0px 10px;
-    overflow: hidden;
-    border-radius: 50%; }
+    overflow: hidden; }
   .view .menu ion-header-bar.profile .avatar img {
     width: 100%; }
   .view .menu ion-header-bar.profile .info .name {
@@ -175,40 +174,35 @@ body {
     margin: 0px 3px;
     color: #387ef5; }
 
-.comments .comment {
+.comments .comment, .notifications .comment, .comments .notification, .notifications .notification {
   display: table;
   width: 100%;
   margin: 10px 0px;
   padding: 10px 0px;
   position: relative;
   border-bottom: solid 1px #c1d1f3; }
-  .comments .comment .avatar {
+  .comments .comment .avatar, .notifications .comment .avatar, .comments .notification .avatar, .notifications .notification .avatar {
     width: 20%;
     max-width: 50px;
     margin-right: 10px;
     float: left; }
-  .comments .comment .avatar img {
+  .comments .comment .avatar img, .notifications .comment .avatar img, .comments .notification .avatar img, .notifications .notification .avatar img {
     width: 100%; }
-  .comments .comment .detail {
+  .comments .comment .detail, .notifications .comment .detail, .comments .notification .detail, .notifications .notification .detail {
     float: left; }
-  .comments .comment .detail .name {
+  .comments .comment .detail .name, .notifications .comment .detail .name, .comments .notification .detail .name, .notifications .notification .detail .name {
     font-weight: 500; }
-  .comments .comment .detail .date {
+  .comments .comment .detail .date, .notifications .comment .detail .date, .comments .notification .detail .date, .notifications .notification .detail .date {
     font-size: 0.8em;
     margin-top: -0.4em; }
-  .comments .comment .detail .content {
+  .comments .comment .detail .content, .notifications .comment .detail .content, .comments .notification .detail .content, .notifications .notification .detail .content {
     color: #666; }
-
-.notifications .item h2 {
-  color: #444;
-  word-break: break-word;
-  white-space: initial;
-  font-weight: normal; }
-  .notifications .item p {
-    font-size: 0.8em; }
-
-.messages .item h2 {
-  font-weight: bold; }
+  .comments .notification .detail .name, .notifications .notification .detail .name {
+    display: inline-block;
+    font-size: 1em; }
+  .comments .notification .detail .text, .notifications .notification .detail .text {
+    display: inline-block;
+    line-height: 1em; }
 
 .user-profil .wrapper .name {
   font-size: 1.2em;
@@ -218,10 +212,4 @@ body {
     color: #387ef5;
     font-size: 1.1em; }
   .user-profil .wrapper .avatar img {
-    width: 100%; }
-  .logo-big {
-    width: 80%;
-    margin: 0px auto;
-    max-width: 300px; }
-  .logo-big img {
     width: 100%; }
