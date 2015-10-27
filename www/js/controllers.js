@@ -26,6 +26,15 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 		}
 		$state.go(to);
 	}
+	$scope.getColor = function (id) {
+		id = id || 0;
+		var colors = ["#F44336", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#2196F3", "#E65100", "#33691E", "#827717", "#006064", "#01579B", "#009688", "#424242"];
+		if (id >= colors.length) {
+			id = id % colors.length;
+		}
+
+		return colors[id];
+	}
 
 
 	/* SAMPLE DATA */

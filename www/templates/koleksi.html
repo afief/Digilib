@@ -13,7 +13,12 @@
 		
 		<div class="cards books">
 			<div class="card book" ng-repeat="book in books track by $index" ng-click="openBook($index + 1)">
-				<div class="thumbnail" ng-style="{backgroundImage: 'url(' + book.thumbnail + ')'}">
+				<div class="thumbnail" ng-style="{backgroundImage: 'url(' + book.thumbnail + ')'}" ng-show="book.thumbnail">
+				</div>
+				<div class="thumbnail" ng-hide="book.thumbnail" ng-style="{'background-color': getColor($index)}">
+					<div class="text">
+						{{book.title}}
+					</div>
 				</div>
 				<div class="detail">
 					<div class="title">{{book.title}}</div>
