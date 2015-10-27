@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.0.9 on Tue, 27 Oct 2015 02:24:01 +0100 (0.4879s) */
+/* compiled by scssphp v0.0.9 on Tue, 27 Oct 2015 04:39:02 +0100 (0.0451s) */
 
 .button {
   position: relative; }
@@ -33,7 +33,7 @@ body {
   font-family: "RobotoDraft", sans-serif; }
 
 .view .nav-bar-container .bar.bar-header {
-  background-color: #0c63ee;
+  background-color: #387ef5;
   font-weight: bold;
   color: white; }
   .view .nav-bar-container .bar.bar-header .buttons.back-button {
@@ -47,7 +47,7 @@ body {
       margin-left: 10px; }
   .view .menu ion-header-bar.profile {
     height: 60px;
-    background-color: #084cb9;
+    background-color: #256ade;
     color: white;
     padding: 10px 0px; }
   .view .menu ion-header-bar.profile .avatar {
@@ -64,7 +64,7 @@ body {
     font-size: 0.8em;
     margin-top: -0.4em; }
   .view .menu ion-content {
-    background-color: #0c63ee;
+    background-color: #387ef5;
     color: white; }
   .view .menu ion-content.has-header {
     top: 60px; }
@@ -92,7 +92,7 @@ body {
     position: relative;
     display: table;
     width: 100%;
-    color: #0c63ee; }
+    color: #387ef5; }
   .view .view-container ion-content .header .icon {
     font-size: 2em;
     float: left;
@@ -127,26 +127,26 @@ body {
     float: left; }
   .books .book .detail .title {
     font-size: 1.2em;
-    color: #0c63ee; }
+    color: #387ef5; }
   .books .book .detail .info {
     color: #666;
     font-size: 0.9em; }
   .books .book .detail .info .icon {
-    color: #0c63ee; }
+    color: #387ef5; }
 
 .book-detail, .notif-page {
   padding: 20px 10px; }
   .book-detail .title, .notif-page .title {
     font-size: 1.3em;
     font-weight: 500;
-    color: #0c63ee; }
+    color: #387ef5; }
   .book-detail .wrapper, .notif-page .wrapper {
     position: relative;
     display: table;
     width: 100%;
     margin: 15px 0px; }
   .book-detail .wrapper h4, .notif-page .wrapper h4 {
-    color: #0c63ee;
+    color: #387ef5;
     margin-top: 10px;
     margin-bottom: 0px;
     border-bottom: solid 1px #c1d1f3; }
@@ -169,7 +169,7 @@ body {
     color: #666;
     font-size: 0.9em; }
   .book-detail .wrapper .detail .info .icon, .notif-page .wrapper .detail .info .icon {
-    color: #0c63ee; }
+    color: #387ef5; }
   .book-detail.notif-page, .notif-page.notif-page {
     padding: 10px; }
   .book-detail.notif-page .wrapper, .notif-page.notif-page .wrapper {
@@ -183,7 +183,7 @@ body {
   .rating-create .stars .star {
     font-size: 4em;
     margin: 0px 3px;
-    color: #0c63ee; }
+    color: #387ef5; }
 
 .comments .comment {
   display: table;
@@ -223,9 +223,9 @@ body {
 .user-profil .wrapper .name {
   font-size: 1.2em;
   font-weight: 500;
-  color: #0c63ee; }
+  color: #387ef5; }
   .user-profil .wrapper .nip {
-    color: #0c63ee;
+    color: #387ef5;
     font-size: 1.1em; }
   .user-profil .wrapper .avatar img {
     width: 100%; }

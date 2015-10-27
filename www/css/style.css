@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.0.9 on Mon, 26 Oct 2015 06:54:08 +0100 (0.0892s) */
+/* compiled by scssphp v0.0.9 on Tue, 27 Oct 2015 04:39:02 +0100 (0.0451s) */
 
 .button {
   position: relative; }
@@ -47,13 +47,14 @@ body {
       margin-left: 10px; }
   .view .menu ion-header-bar.profile {
     height: 60px;
-    background-color: #0c63ee;
+    background-color: #256ade;
     color: white;
     padding: 10px 0px; }
   .view .menu ion-header-bar.profile .avatar {
     width: 40px;
     margin: 0px 10px;
-    overflow: hidden; }
+    overflow: hidden;
+    border-radius: 50%; }
   .view .menu ion-header-bar.profile .avatar img {
     width: 100%; }
   .view .menu ion-header-bar.profile .info .name {
@@ -116,6 +117,11 @@ body {
     height: 130px;
     margin-right: 4%;
     background-size: cover; }
+  .books .book .thumbnail .text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    padding: 5px; }
   .books .book .detail {
     max-width: 66%;
     float: left; }
@@ -151,6 +157,11 @@ body {
     height: 130px;
     margin-right: 4%;
     background-size: cover; }
+  .book-detail .wrapper .thumbnail .text, .notif-page .wrapper .thumbnail .text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    padding: 5px; }
   .book-detail .wrapper .detail, .notif-page .wrapper .detail {
     max-width: 66%;
     float: left; }
@@ -174,35 +185,40 @@ body {
     margin: 0px 3px;
     color: #387ef5; }
 
-.comments .comment, .notifications .comment, .comments .notification, .notifications .notification {
+.comments .comment {
   display: table;
   width: 100%;
   margin: 10px 0px;
   padding: 10px 0px;
   position: relative;
   border-bottom: solid 1px #c1d1f3; }
-  .comments .comment .avatar, .notifications .comment .avatar, .comments .notification .avatar, .notifications .notification .avatar {
+  .comments .comment .avatar {
     width: 20%;
     max-width: 50px;
     margin-right: 10px;
     float: left; }
-  .comments .comment .avatar img, .notifications .comment .avatar img, .comments .notification .avatar img, .notifications .notification .avatar img {
+  .comments .comment .avatar img {
     width: 100%; }
-  .comments .comment .detail, .notifications .comment .detail, .comments .notification .detail, .notifications .notification .detail {
+  .comments .comment .detail {
     float: left; }
-  .comments .comment .detail .name, .notifications .comment .detail .name, .comments .notification .detail .name, .notifications .notification .detail .name {
+  .comments .comment .detail .name {
     font-weight: 500; }
-  .comments .comment .detail .date, .notifications .comment .detail .date, .comments .notification .detail .date, .notifications .notification .detail .date {
+  .comments .comment .detail .date {
     font-size: 0.8em;
     margin-top: -0.4em; }
-  .comments .comment .detail .content, .notifications .comment .detail .content, .comments .notification .detail .content, .notifications .notification .detail .content {
+  .comments .comment .detail .content {
     color: #666; }
-  .comments .notification .detail .name, .notifications .notification .detail .name {
-    display: inline-block;
-    font-size: 1em; }
-  .comments .notification .detail .text, .notifications .notification .detail .text {
-    display: inline-block;
-    line-height: 1em; }
+
+.notifications .item h2 {
+  color: #444;
+  word-break: break-word;
+  white-space: initial;
+  font-weight: normal; }
+  .notifications .item p {
+    font-size: 0.8em; }
+
+.messages .item h2 {
+  font-weight: bold; }
 
 .user-profil .wrapper .name {
   font-size: 1.2em;
@@ -212,4 +228,10 @@ body {
     color: #387ef5;
     font-size: 1.1em; }
   .user-profil .wrapper .avatar img {
+    width: 100%; }
+  .logo-big {
+    width: 80%;
+    margin: 0px auto;
+    max-width: 300px; }
+  .logo-big img {
     width: 100%; }
