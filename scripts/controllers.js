@@ -1,13 +1,13 @@
 var controll = angular.module('controllers', []);
 
-controll.run(function($ionicPlatform, $ionicHistory, $rootScope) {
-});
+controll.run(['$ionicPlatform', '$ionicHistory', '$rootScope', function($ionicPlatform, $ionicHistory, $rootScope) {
+}]);
 
 
 /*
 Main Controller
 */
-controll.controller('IndexController', function($scope, $state, $ionicHistory, $location, $ionicSideMenuDelegate, user) {
+controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$location', '$ionicSideMenuDelegate', 'user', function($scope, $state, $ionicHistory, $location, $ionicSideMenuDelegate, user) {
 	console.info("IndexController");
 
 	$scope.$on('$ionicView.enter', function(e, ts) {
@@ -18,14 +18,14 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 	});
 
 	$scope.isBackButtonShow = function() {
-		return $ionicHistory.backView() != null;
-	}
+		return $ionicHistory.backView() !== null;
+	};
 	$scope.changeState = function(to) {
 		if ($ionicSideMenuDelegate.isOpenLeft()) {
 			$ionicSideMenuDelegate.toggleLeft();
 		}
 		$state.go(to);
-	}
+	};
 	$scope.getColor = function (id) {
 		id = id || 0;
 		var colors = ["#F44336", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#2196F3", "#E65100", "#33691E", "#827717", "#006064", "#01579B", "#009688", "#424242"];
@@ -34,11 +34,41 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 		}
 
 		return colors[id];
-	}
+	};
 
 
 	/* SAMPLE DATA */
 	$scope.books = [
+	{
+		title: "Dongeng Liburan",
+		author: "Usborne",
+		thumbnail: "img/books/dongeng.jpg",
+		rating: 4.5,
+		review_count: 2,
+		stock: {
+			available: 6,
+			total: 12
+		},
+		pages_count: 400,
+		isbn: "9785412652316",
+		year: 2010,
+		shelf_number: 3.1,
+	},
+	{
+		title: "Kancil Milenium Baru",
+		author: "Witarsa, S. Pd.",
+		thumbnail: "img/books/kancil.jpeg",
+		rating: 4.9,
+		review_count: 10,
+		stock: {
+			available: 3,
+			total: 10
+		},
+		pages_count: 300,
+		isbn: "9785412123019",
+		year: 2014,
+		shelf_number: 4.1,
+	},
 	{
 		title: "Boneshaker",
 		author: "Cherie Priest",
@@ -175,4 +205,4 @@ controll.controller('IndexController', function($scope, $state, $ionicHistory, $
 		date_return: "7 Oktober 2015"
 	}
 	];
-});
+}]);

@@ -1,9 +1,9 @@
-controll.controller('KoleksiController', function($scope, $state, $ionicHistory, $ionicLoading, user) {
+controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '$ionicLoading', 'user', function($scope, $state, $ionicHistory, $ionicLoading, user) {
 	console.info("Koleksi Controller");
 
 	$scope.openBook = function(n) {
 		$state.go("app.buku", {id: n});
-	}
+	};
 
 	$ionicHistory.clearHistory();
 
@@ -18,4 +18,4 @@ controll.controller('KoleksiController', function($scope, $state, $ionicHistory,
 
 	};
 
-});
+}]);

@@ -1,7 +1,9 @@
-$color-main : #387ef5;
-$color-main-darker : #256ADE;
-$color-main-light: #C1D1F3;
-$color-main-lightest: #F6F7FD;
+$color-main : $positive;
+$color-main-darker : darken($color-main, 10);
+$color-main-light: lighten($color-main, 20);
+$color-main-lightest: lighten($color-main, 60);
+
+$color-secondary: #FFEB3B;
 
 @import "ionic-override";
 
@@ -24,10 +26,13 @@ body {
 							display: none;
 						}
 					}
-					.icon {
-						font-size: 32px;
-						display: block;
-						margin-left: 10px;
+					.button {
+						background-color: transparent;
+						color: white;
+						.icon {
+							font-size: 32px;
+							display: block;
+						}
 					}
 				}
 			}
@@ -35,27 +40,37 @@ body {
 	}
 	.menu {
 		ion-header-bar.profile {
-			height: 60px;
+			width: 100%;
+			display: table;
+			padding: 20px;
+			text-align: center;
 			background-color: $color-main-darker;
 			color: white;
-			padding: 10px 0px;
+			background-image: none;
 			.avatar {
-				width: 40px;
-				margin: 0px 10px;
-				overflow: hidden;
+				width: 80px;
+				height: 80px;
 				border-radius: 50%;
-				img {
-					width: 100%;
-				}
+				box-shadow: 0px 0px 7px -5px #444;
+				margin: 10px auto;
+				background-size: cover;
+				background-repeat: no-repeat;
+				line-height: 80px;
+				font-size: 2em;
+				font-weight: bold;
+				background-color: $color-main-darker;
+				color: white;
 			}
-			.info {
-				.name {
-					font-size: 1.2em;
-					font-size: 500;
-				}
-				.email {
-					font-size: 0.8em;
-					margin-top: -0.4em;
+			.name {
+				font-size: 1.2em;
+				font-weight: bold;
+			}
+			.edit-profile {
+				padding-top: 10px;
+				a {
+					color: white;
+					font-size: 0.9em;
+					text-decoration: underline;
 				}
 			}
 		}
@@ -63,7 +78,7 @@ body {
 			background-color: $color-main;
 			color: white;
 			&.has-header {
-				top: 60px;
+				top: 190px;
 			}
 			.list {
 				.item {
@@ -116,21 +131,28 @@ body {
 		}
 	}
 }
-
+.page-koleksi {
+	.search {
+		margin: 10px;
+	}
+}
 .books {
 	.book {
 		position: relative;
 		box-sizing: border-box;
 		background-color: white;
-		padding: 10px;
-		margin: 0px 10px 20px 10px;
+		padding: 10px 10px 10px 80px;
+		margin: 0px 10px 10px 10px;
+		min-height: 100px;
 		.thumbnail {
 			float: left;
-			width: 30%;
-			max-width: 80px;
-			height: 130px;
-			margin-right: 4%;
+			width: 100%;
+			max-width: 60px;
+			height: 80px;
 			background-size: cover;
+			position: absolute;
+			left: 10px;
+			top: 10px;
 			.text {
 				font-size: 1.5em;
 				font-weight: bold;
@@ -139,8 +161,6 @@ body {
 			}
 		}
 		.detail {
-			max-width: 66%;
-			float: left;
 			.title {
 				font-size: 1.2em;
 				color: $color-main;
@@ -156,7 +176,36 @@ body {
 	}
 }
 .book-detail, .notif-page {
-	padding: 20px 10px;
+	.banner-head {
+		padding: 20px 20px 0px 20px;
+		background-color: $color-main;
+		.title, .author {
+			color: white;
+		}
+		.button-bar {
+			background-color: transparent;
+			margin-top: 10px;
+			.button	{
+				background-color: transparent;
+				border: 0px;
+				box-shadow: none;
+				color: white;
+				border-radius: 0px;
+				&.active {
+					color: $color-secondary;
+				}
+			}
+		}
+	}
+	.card {
+		.item-divider {
+			text-align: center;
+			color: $color-main;
+		}
+		.wrapper {
+			margin: 0px;
+		}
+	}
 	.title {
 		font-size: 1.3em;
 		font-weight: 500;
@@ -211,36 +260,51 @@ body {
 	h4 {
 		text-align: center;
 	}
+	.card-rating {
+		.item-divider {
+			text-align: center;
+			color: $color-main-darker;
+		}
+	}
 	.stars {
 		display: table;
 		margin: 0px auto;
 		.star {
-			font-size: 4em;
+			font-size: 2.5em;
 			margin: 0px 3px;
 			color: $color-main;
 		}
 	}
+	.text-area {
+		width: 100%;
+		height: 80px;
+		border: solid 1px #ddd;
+		padding: 10px;
+	}
 }
 
 .comments {
+	.item-divider {
+		text-align: center;
+		color: $color-main-darker;
+	}
 	.comment {
 		display: table;
 		width: 100%;
-		margin: 10px 0px;
-		padding: 10px 0px;
-		position: relative;
+		margin-bottom: 20px;
+		padding: 0px 0px 10px 60px;
 		border-bottom: solid 1px $color-main-light;
+		position: relative;
 		.avatar {
-			width: 20%;
-			max-width: 50px;
-			margin-right: 10px;
-			float: left;
+			width: 50px;
+			position: absolute;
+			left: 0px;
+			top: 0px;
 			img {
 				width: 100%;
 			}
 		}
 		.detail {
-			float: left;
 			.name {
 				font-weight: 500;
 			}
@@ -301,9 +365,15 @@ body {
 
 .logo-big {
 	width: 80%;
-	margin: 0px auto;
+	margin: 50px auto 10px auto;
 	max-width: 300px;
 	img {
 		width: 100%;
 	}
+}
+
+.page-login {
+	background-image: url('../img/login-bg.jpg');
+	background-size: cover;
+	background-position: top center;
 }

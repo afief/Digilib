@@ -13,7 +13,7 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 		window.localStorage.setItem("vlp-key", key);
 		console.log("change key", key);
 	}
-	serialize = function(obj, prefix) {
+	var serialize = function(obj, prefix) {
 		var str = [];
 		for(var p in obj) {
 			if (obj.hasOwnProperty(p)) {
@@ -24,7 +24,7 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 			}
 		}
 		return str.join("&");
-	}
+	};
 
 	return {
 		profile: {},
@@ -36,7 +36,7 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 			return isLogin;
 		},
 		isLoginLocal: function() {
-			return (key != "");
+			return (key !== "");
 		},
 		login: function(email, password) {
 			var defer = $q.defer();
@@ -137,7 +137,7 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 		cekLocal: function() {
 			lgi("cek local", key);
 
-			if (key == "") {
+			if (key === "") {
 				return $q.when({status: false});
 			} else {
 				return $q.when({status: true});
@@ -148,7 +148,7 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 			var defer = $q.defer();
 			var ini = this;
 			
-			if (key == "") {
+			if (key === "") {
 				lgi("cek login", false);
 				return $q.when({status: false});
 			}
@@ -264,14 +264,14 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 
 			return defer.promise;
 		}
-	}
+	};
 
 }]);
 
 userModule.run(["user", "$rootScope", "$http", function(user, $root, $http) {
 	$root.user = user;
 	$http.defaults.headers.common.key = user.getKey();
-	user.cek()
+//	user.cek();
 }]);
 
 
@@ -291,5 +291,5 @@ userModule.factory("connectivity", function() {
 			else
 				return "Terjadi kesalahan pada server. Hubungi administrator";
 		}
-	}
+	};
 });

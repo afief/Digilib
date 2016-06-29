@@ -1,6 +1,6 @@
 var mainApp = angular.module('digilib', ['ionic', 'controllers', 'UserModule']);
 
-mainApp.run(function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope) {
+mainApp.run(['$ionicConfig', '$ionicPlatform', '$ionicHistory', '$rootScope', function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope) {
 
 	$ionicPlatform.ready(function() {
 
@@ -16,7 +16,7 @@ mainApp.run(function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope) {
 
 	//$rootScope.user = user;
 
-});
+}]);
 
 mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 	//$ionicConfigProvider.views.transition('ios');
@@ -68,6 +68,16 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 		views: {
 			content: {
 				templateUrl: 'templates/buku.html',
+				controller: 'BukuController'
+			}
+		}
+	})
+
+	.state('app.buku-review', {
+		url: '/buku/:id',
+		views: {
+			content: {
+				templateUrl: 'templates/buku-review.html',
 				controller: 'BukuController'
 			}
 		}

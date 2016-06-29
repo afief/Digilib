@@ -1,4 +1,4 @@
-controll.controller('BukuController', function($scope, $state, $ionicHistory, user) {
+controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'user', function($scope, $state, $ionicHistory, user) {
 	console.info("Buku Controller");
 
 	$scope.id = $state.params.id;
@@ -8,5 +8,5 @@ controll.controller('BukuController', function($scope, $state, $ionicHistory, us
 	$scope.rating = 0;
 	$scope.setRating = function(n) {
 		$scope.rating = n;
-	}
-});
+	};
+}]);
