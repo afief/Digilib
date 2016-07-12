@@ -43,16 +43,6 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 		}
 	})
 
-	.state('app.login', {
-		url: '/login',
-		views: {
-			content: {
-				templateUrl: 'templates/login.html',
-				controller: 'LoginController'
-			}
-		}
-	})
-
 	.state('app.profil', {
 		url: '/profil',
 		views: {
@@ -141,6 +131,12 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 				controller: 'PengaturanController'
 			}
 		}
+	})
+
+	.state('login', {
+		url: '/login',
+		templateUrl: 'templates/login.html',
+		controller: 'LoginController'
 	})
 	;
 

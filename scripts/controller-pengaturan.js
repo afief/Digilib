@@ -1,11 +1,11 @@
-controll.controller('PengaturanController', ['$scope', '$state', '$ionicHistory', 'user', function($scope, $state, $ionicHistory, user) {
+controll.controller('PengaturanController', ['$scope', '$state', '$location', '$ionicHistory', 'user', function($scope, $state, $location, $ionicHistory, user) {
 	console.info('PengaturanController');
 
 	$ionicHistory.clearHistory();
 
 
 	$scope.doLogout = function() {
-		$state.go("app.login");
+		$location.path("/login");
 	};
 
 }]);

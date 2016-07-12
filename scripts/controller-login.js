@@ -1,11 +1,12 @@
-controll.controller('LoginController', ['$scope', '$state', '$ionicHistory', 'user', function($scope, $state, $ionicHistory, user) {
+controll.controller('LoginController', ['$scope', '$location', '$ionicHistory', 'user', function($scope, $location, $ionicHistory, user) {
 	console.info('LoginController');
 
 	$ionicHistory.clearHistory();
 
 
 	$scope.doLogin = function() {
-		$state.go("app.koleksi");
+		console.log("login");
+		$location.path("/app/koleksi");
 	};
 
 }]);

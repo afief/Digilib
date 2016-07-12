@@ -108,7 +108,7 @@ body {
 	.view-container {
 		
 		ion-content {
-			background-color: $color-main-lightest;
+			background-image: url("../img/bg.png");
 			.header {
 				padding: 10px 10px 10px 10px;
 				position: relative;
@@ -364,8 +364,8 @@ body {
 }
 
 .logo-big {
-	width: 80%;
-	margin: 50px auto 10px auto;
+	width: 60%;
+	margin: 50px auto 30px auto;
 	max-width: 300px;
 	img {
 		width: 100%;
@@ -373,7 +373,31 @@ body {
 }
 
 .page-login {
-	background-image: url('../img/login-bg.jpg');
-	background-size: cover;
-	background-position: top center;
+}
+.mainbg {
+	background-image: url("../img/bg.png");
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	.kiriatas {
+		background-image: url("../img/kiri_atas.png");
+		width: 320px;
+		height: 184px;
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.kananbawah {
+		background-image: url("../img/kanan_bawah.png");
+		right: 0px;
+		bottom: 0px;
+		position: fixed;
+		width: 320px;
+		height: 184px;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
 }
