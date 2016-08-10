@@ -1,4 +1,4 @@
-var mainApp = angular.module('digilib', ['ionic', 'controllers', 'UserModule']);
+var mainApp = angular.module('digilib', ['ionic', 'controllers', 'UserModule', 'SettingModule', 'ngFileUpload']);
 
 mainApp.run(['$ionicConfig', '$ionicPlatform', '$ionicHistory', '$rootScope', function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope) {
 
@@ -137,6 +137,11 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 		url: '/login',
 		templateUrl: 'templates/login.html',
 		controller: 'LoginController'
+	})
+	.state('register', {
+		url: '/register',
+		templateUrl: 'templates/login-register.html',
+		controller: 'RegisterController'
 	})
 	;
 

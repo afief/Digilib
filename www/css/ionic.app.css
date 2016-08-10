@@ -10112,8 +10112,14 @@ body {
   .logo-big img {
     width: 100%; }
 
+.page-login h3 {
+  text-align: center;
+  color: #3b93ac; }
+
 .page-login .card {
-  border: 0px; }
+  border: 0px;
+  margin-bottom: 10px;
+  margin-top: 0px; }
   .page-login .card .item {
     border: 0px;
     padding: 10px 10px 10px 54px;
@@ -10139,10 +10145,20 @@ body {
       margin: 0px;
       padding-left: 15px; }
 
+.page-login .nr {
+  margin-top: 30px;
+  color: #444; }
+  .page-login .nr span {
+    font-weight: bold;
+    text-decoration: underline; }
+
 .page-login .button-login {
   margin: 0px 10px; }
   .page-login .button-login .button {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+
+.page-register .logo-big {
+  max-width: 100px; }
 
 .mainbg {
   background-image: url("../img/bg.png");

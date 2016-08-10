@@ -2,18 +2,24 @@ var userModule = angular.module("UserModule", [], ["$httpProvider", function($ht
 	$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 }]);
 
-userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $root) {
+userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", function($http, $q, $root, Upload, setting) {
 
-	var key = window.localStorage.getItem("vlp-key") || "";
+	window.f = $http;
+	
+	var key = window.localStorage["digilib-upi"] || "";
 	var isLogin = false;
 	var withCookie = false;
+	var localProfile = setting.get("profile") || {};
+
+	$http.defaults.headers.common.token = key;
 
 	function changeKey(newKey) {
 		key = newKey;
-		window.localStorage.setItem("vlp-key", key);
+		$http.defaults.headers.common.token = key;
+		window.localStorage["digilib-upi"] = key;
 		console.log("change key", key);
 	}
-	var serialize = function(obj, prefix) {
+	serialize = function(obj, prefix) {
 		var str = [];
 		for(var p in obj) {
 			if (obj.hasOwnProperty(p)) {
@@ -25,14 +31,96 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 		}
 		return str.join("&");
 	};
+	function createGetRequest(uri, saveCall) {
+		var defer  = $q.defer();
+
+		if (uri.indexOf('?') >= 0) {
+			uri += '&buzzdata=' + (new Date()).getTime().toString();
+		} else {
+			uri += '?buzzdata=' + (new Date()).getTime().toString();
+		}
+
+		var promise = $http.get(apiUrl + uri).
+		success(function(data) {
+			if (data.status) {
+				defer.resolve(data.data);
+			} else {
+				defer.reject(data.message);
+			}
+		}).
+		catch(function(err) {
+			defer.reject(err);
+		});
+
+		return defer.promise;
+	}
+	function createPostRequest(uri, params) {
+		var defer  = $q.defer();
+
+		if (uri.indexOf('?') >= 0) {
+			uri += '&buzzdata=' + (new Date()).getTime().toString();
+		} else {
+			uri += '?buzzdata=' + (new Date()).getTime().toString();
+		}
+
+		var promise = $http.post(apiUrl + uri, serialize(params)).
+		success(function(data) {
+			if (data.status) {
+				defer.resolve(data.data);
+			} else {
+				defer.reject(data.message);
+			}
+		}).
+		catch(function(err) {
+			defer.reject(err);
+		});
+
+		return defer.promise;
+	}
+	function createUploadRequest(uri, file, data) {
+		var defer = $q.defer();
+
+		Upload.upload({
+			url: apiUrl + uri,
+			method: 'POST',
+			file: file,
+			sendFieldsAs: 'form',
+			fields: data
+		}).progress(function (evt) {
+			var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+			defer.notify(progressPercentage);
+		}).success(function (data, status, headers, config) {
+			if (data.status) {
+				defer.resolve(data.data);
+			} else {
+				defer.reject(data.message);
+			}
+		}).error(function (data, status, headers, config) {
+			defer.reject("connection_failed");
+		});
+
+		return defer.promise;
+	}
 
 	return {
-		profile: {},
+		get profile() {
+			return localProfile;
+		},
+		set profile(val) {
+			localProfile = val;
+		},
 		getKey: function() {
 			return key;
 		},
+		setKey: function(key) {
+			changeKey(key);
+
+			if (key)
+				isLogin = true;
+			this.cek();
+		},
 		isLogin: function() {
-			console.log(isLogin);
+			lgi("isLogin", isLogin);
 			return isLogin;
 		},
 		isLoginLocal: function() {
@@ -44,18 +132,24 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 
 			var credential = {email: email, password: password};
 
-			$http.post(apiUrl + "login", serialize(credential)).
+			$http.post(apiUrl + "auth/login", serialize(credential)).
 			success(function(data) {
 				if (data.status) {
+					if (data.data && data.data.token) {
+						changeKey(data.data.token);
 
-					changeKey(data.data);
-					$http.defaults.headers.common.key = data.data;
-
-					isLogin = true;		
-					ini.cek();
-					defer.resolve(true);
+						isLogin = true;		
+						ini.cek();
+						defer.resolve(true);
+					} else {
+						defer.reject("Gagal mengambil token login.");
+					}
 				} else {
-					defer.reject(data.message);
+					if (data.message && (typeof data.detail == "string")) {
+						defer.reject(data.detail);
+					} else {
+						defer.reject("Username / Password salah");
+					}
 				}
 			}).
 			catch(function(err) {
@@ -64,21 +158,28 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 
 			return defer.promise;
 		},
-		register: function(full_name, email) {
+		register: function(registerData) {
 			var defer = $q.defer();
 			var ini = this;
 
-			var credential = {
-				full_name: full_name,
-				email: email
-			};
-
-			$http.post(apiUrl + "register", serialize(credential)).
+			$http.post(apiUrl + "auth/register", serialize(registerData)).
 			success(function(data) {
 				if (data.status) {
-					defer.resolve(true);
+					if (data.data && data.data.token) {
+						changeKey(data.data.token);
+
+						isLogin = true;		
+						ini.cek();
+						defer.resolve(true);
+					} else {
+						defer.reject("Gagal mengambil token login.");
+					}
 				} else {
-					defer.reject(data.message);
+					if (data.message && (typeof data.message == "string")) {
+						defer.reject(data.message);
+					} else {
+						defer.reject("Username / Password salah");
+					}
 				}
 			}).
 			catch(function(err) {
@@ -87,49 +188,28 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 
 			return defer.promise;
 		},
-		confirm: function(username, code) {
+		changeAvatar: function(file) {
 			var defer = $q.defer();
-			var ini = this;
 
-			var credential = {
-				username: username,
-				code: code
-			};
-
-			$http.post(apiUrl + "confirm", serialize(credential)).
-			success(function(data) {
-				if (data.status) {
-					defer.resolve(true);
-				} else {
-					defer.reject(data.message);
+			Upload.upload({
+				url: apiUrl + "changeAvatar",
+				method: 'POST',
+				file: file,
+				sendFieldsAs: 'form',
+				fields: {
 				}
-			}).
-			catch(function(err) {
-				defer.reject(err);
-			});
-
-			return defer.promise;
-		},
-		changePassword: function(username, password, code) {
-			var defer = $q.defer();
-			var ini = this;
-
-			var credential = {
-				username: username,
-				password: password,
-				code: code
-			};
-
-			$http.post(apiUrl + "changePassword", serialize(credential)).
-			success(function(data) {
-				if (data.status) {
-					defer.resolve(true);
-				} else {
-					defer.reject(data.message);
-				}
-			}).
-			catch(function(err) {
-				defer.reject(err);
+			}).progress(function (evt) {
+				var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+				defer.notify(progressPercentage);
+			}).success(function (data, status, headers, config) {
+				console.log(data);
+				if (data.status)
+					defer.resolve(data.data);
+				else
+					defer.reject(false);
+			}).error(function (data, status, headers, config) {
+				console.log(data);
+				defer.reject(false);
 			});
 
 			return defer.promise;
@@ -147,9 +227,8 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 		cek: function() {
 			var defer = $q.defer();
 			var ini = this;
-			
+
 			if (key === "") {
-				lgi("cek login", false);
 				return $q.when({status: false});
 			}
 
@@ -158,19 +237,25 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 				lgi("cek login", data.status, data.data);
 				if (data.status) {
 					isLogin = true;
+
 					ini.profile = data.data;
-					defer.resolve(data);
-					$root.$broadcast("userProfileUpdated", ini.profile);
-					lg("bradcast");
+					setting.set("profile", ini.profile);
+
+					defer.resolve(data.data);
+
+					$root.$broadcast("onuser", ini.profile);
+
 				} else if (data.hasOwnProperty("status")) {
 					changeKey("");
 					defer.resolve(data);
+				} else if (data.hasOwnProperty('message')) {
+					defer.reject(data.message);
 				} else {
-					defer.reject(data);
+					defer.reject(JSON.stringify(data));
 				}
 			}).
 			catch(function(err) {
-				defer.reject(data.message);
+				defer.reject(JSON.stringify(err));
 			});
 
 			return defer.promise;
@@ -180,86 +265,14 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 			var defer  = $q.defer();
 			var promise = $http.get(apiUrl + "logout").
 			success(function(data) {
-				if (data.status) {
-					isLogin = false;
-				}
+				isLogin = false;
 				changeKey("");
 				defer.resolve(true);
 			}).
 			catch(function(err) {
+				isLogin = false;
 				changeKey("");
 				defer.resolve(true);
-			});
-
-			return defer.promise;
-		},
-
-		saveLocalData: function(key, dat) {
-			if (window.localStorage) {
-				lgw("save local data", dat);
-				window.localStorage.setItem(key, JSON.stringify(dat));
-			}
-		},
-		getLocalData: function(key) {
-			var res = {};
-			if (window.localStorage) {
-				var dat = window.localStorage.getItem(key);
-				res = JSON.parse(dat);
-				lgw("load local data", res);
-			}
-			return res;
-		},
-
-		getPakets: function() {
-			var defer = $q.defer();
-
-			$http.get(apiUrl + "pakets").
-			success(function(data, status) {
-				lgi("get pakets", data.status, data.data);
-				if (data.status) {
-					defer.resolve(data.data);
-				} else {
-					defer.reject(data);
-				}
-			}).
-			catch(function(err) {
-				defer.reject(data.message);
-			});
-
-			return defer.promise;
-		},
-		getPaket: function(slug) {
-			var defer = $q.defer();
-
-			$http.get(apiUrl + "paket/" + slug).
-			success(function(data, status) {
-				lgi("get paket detail", data.status, data.data);
-				if (data.status) {
-					defer.resolve(data.data);
-				} else {
-					defer.reject(data);
-				}
-			}).
-			catch(function(err) {
-				defer.reject(data.message);
-			});
-
-			return defer.promise;
-		},
-		getVideo: function(id) {
-			var defer = $q.defer();
-
-			$http.get(apiUrl + "video/" + id).
-			success(function(data, status) {
-				lgi("get video detail", data.status, data.data);
-				if (data.status) {
-					defer.resolve(data.data);
-				} else {
-					defer.reject(data);
-				}
-			}).
-			catch(function(err) {
-				defer.reject(data.message);
 			});
 
 			return defer.promise;
@@ -268,28 +281,10 @@ userModule.factory("user", ["$http","$q", "$rootScope", function($http, $q, $roo
 
 }]);
 
-userModule.run(["user", "$rootScope", "$http", function(user, $root, $http) {
-	$root.user = user;
-	$http.defaults.headers.common.key = user.getKey();
-//	user.cek();
+userModule.run(["user", "$rootScope", "$http", "$ionicPlatform", function(user, $rootScope, $http, $ionicPlatform) {
+	$ionicPlatform.ready(function() {
+		console.log("Ionic Ready");
+		$rootScope.user = user;
+		user.cek();
+	});
 }]);
-
-
-userModule.factory("connectivity", function() {
-	return {
-		checkStatus: function(hres) {
-			if (hres.status <= 0)
-				return "Koneksi mati. Mohon periksa kembali jaringan anda.";
-			else if (hres <= 199)
-				return "Gagal (" + hres.status + "): " + hres.statusText;
-			else if (hres <= 299)
-				return "Gagal mengambil data melalui akun anda. Cobalah untuk keluar, lalu masuk kembali ke aplikasi";
-			else if (hres <= 399)
-				return "Terjadi kesalahan koneksi. Koneksi dialihkan";
-			else if (hres <= 499)
-				return "Terjadi kesalahan ketika mengakses server.";
-			else
-				return "Terjadi kesalahan pada server. Hubungi administrator";
-		}
-	};
-});

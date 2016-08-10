@@ -23,11 +23,11 @@
 	<ion-side-menu side="left">
 		<ion-header-bar class="profile" ng-click="changeState('app.profil')">
 
-			<div class="avatar" style="background-image: url('img/afief.jpg');">
+			<div class="avatar" ng-style="{'background-image': 'url(' + user.profile.member_image + ')'}">
 			</div>
 
 			<div class="name">
-				Afief YR
+				{{user.profile.member_name}}
 			</div>
 			<div class="edit-profile">
 				<a menu-close ui-sref="app.home">Edit Profile</a>

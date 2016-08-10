@@ -5,20 +5,26 @@
 			<img src="img/logo_big.png" alt="">
 		</div>
 
+		<h3>LOGIN</h3>
+
 		<div class="list card">	
 			<label class="item item-input-wrapper">
 				<i class="icon ion-person placeholder-icon"></i>
-				<input type="text" placeholder="Username">
+				<input type="text" placeholder="Username / Email" ng-model="data.username">
 			</label>
+		</div>
+		<div class="list card">	
 			<label class="item item-input-wrapper">
 				<i class="icon ion-locked placeholder-icon"></i>
-				<input type="password" placeholder="Password">
+				<input type="password" placeholder="Password" ng-model="data.password">
 			</label>
 		</div>
 		<div class="wrapper button-login">
 			<button class="button button-full button-positive" ng-click="doLogin()">
 				Login
 			</button>
+		
+			<div class="nr"  ng-click="openRegister()">Belum Punya Akun? <br><span>Register</span></div>
 		</div>
 
 	</ion-content>
