@@ -284,6 +284,15 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 			});
 
 			return defer.promise;
+		},
+
+
+		getBooks: function (params) {
+			var str = "";
+			if (params) {
+				str = '?' + serialize(params);
+			}
+			return createGetRequest('/books' + str);
 		}
 	};
 

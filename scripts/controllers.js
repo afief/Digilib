@@ -38,101 +38,10 @@ controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$l
 
 		return colors[id];
 	};
+	$scope.getBookThumbnail = function (argument) {
+		 return "http://localhost/perpus/lib/phpthumb/phpThumb.php?src=../../images/docs/" + argument + "&w=100";
+	};
 
-
-	/* SAMPLE DATA */
-	$scope.books = [
-	{
-		title: "Dongeng Liburan",
-		author: "Usborne",
-		thumbnail: "img/books/dongeng.jpg",
-		rating: 4.5,
-		review_count: 2,
-		stock: {
-			available: 6,
-			total: 12
-		},
-		pages_count: 400,
-		isbn: "9785412652316",
-		year: 2010,
-		shelf_number: 3.1,
-	},
-	{
-		title: "Kancil Milenium Baru",
-		author: "Witarsa, S. Pd.",
-		thumbnail: "img/books/kancil.jpeg",
-		rating: 4.9,
-		review_count: 10,
-		stock: {
-			available: 3,
-			total: 10
-		},
-		pages_count: 300,
-		isbn: "9785412123019",
-		year: 2014,
-		shelf_number: 4.1,
-	},
-	{
-		title: "Boneshaker",
-		author: "Cherie Priest",
-		thumbnail: "img/books/book1.jpg",
-		rating: 3.5,
-		review_count: 15,
-		stock: {
-			available: 5,
-			total: 20
-		},
-		pages_count: 300,
-		isbn: "9785412654856",
-		year: 2000,
-		shelf_number: 4.1,
-	},
-	{
-		title: "The Anubis Gates",
-		author: "Tim Powers",
-		thumbnail: "img/books/book2.jpg",
-		rating: 2.5,
-		review_count: 17,
-		stock: {
-			available: 5,
-			total: 34
-		},
-		pages_count: 250,
-		isbn: "9856327594524",
-		year: 2010,
-		shelf_number: 5.324
-	},
-	{
-		title: "The Time Traveler's Wife",
-		author: "Audrey Niffenegger",
-		thumbnail: "img/books/book3.jpg",
-		rating: 4,
-		review_count: 5,
-		stock: {
-			available: 15,
-			total: 40
-		},
-		pages_count: 270,
-		isbn: "9785454896326",
-		year: 2013,
-		shelf_number: 2.43
-	},
-	{
-		title: "Fortune's Rocks",
-		author: "Anita Shreve",
-		thumbnail: "img/books/book4.jpg",
-		rating: 4,
-		review_count: 5,
-		stock: {
-			available: 15,
-			total: 40
-		},
-		pages_count: 270,
-		isbn: "9785454896326",
-		year: 2013,
-		shelf_number: 8.23
-	}
-	];
 
 	$scope.reviews = [
 	{
