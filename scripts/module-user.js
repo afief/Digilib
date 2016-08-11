@@ -238,7 +238,15 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 				if (data.status) {
 					isLogin = true;
 
+
 					ini.profile = data.data;
+					if (!ini.profile.member_image) {
+						ini.profile.member_image = "img/default-user-image.png";
+					} else {
+						setting.resolveOnlineImage(ini.profile.member_image).then(function(url) {
+							ini.profile.member_image = url;
+						});
+					}
 					setting.set("profile", ini.profile);
 
 					defer.resolve(data.data);

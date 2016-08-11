@@ -4,13 +4,13 @@
 		<div class="card user-profil">
 			<div class="wrapper row">
 	  			<div class="avatar col col-33">
-	  				<img src="img/afief.jpg">
+	  				<img ng-src="{{user.profile.member_image}}">
 	  			</div>
 	  			<div class="detail col">
-	  				<div class="name">Afief Yona Ramadhana</div>
-					<div class="nip">0806935</div>
-					<div class="info">ramacyber@gmail.com</div>
-					<div class="status">Mahasiswa</div>
+	  				<div class="name">{{user.profile.member_name}}</div>
+					<div class="nip">{{user.profile.member_id}}</div>
+					<div class="info">{{user.profile.member_email}}</div>
+					<div class="status">{{user.profile.member_phone}}</div>
 	  			</div>
 	  		</div>
 	  	</div>

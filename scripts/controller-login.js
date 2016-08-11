@@ -92,7 +92,7 @@ controll.controller('RegisterController', ['$scope', '$location', '$ionicHistory
 		} else {
 			$ionicLoading.show({template: "Memproses Registrasi"});
 			user.register($scope.data).then(function() {
-				$location.path('app.home');
+				$location.path('/app/koleksi');
 				$ionicLoading.hide();
 			}, function(err) {
 				$ionicLoading.hide();
