@@ -292,7 +292,28 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 			if (params) {
 				str = '?' + serialize(params);
 			}
-			return createGetRequest('/books' + str);
+			return createGetRequest('books' + str);
+		},
+		getBook: function (biblio_id) {
+			 return createGetRequest('book/' + biblio_id);
+		},
+		getBookRate: function (biblio_id) {
+			 return createGetRequest('book/' + biblio_id + '/rate');
+		},
+		setBookRate: function (biblio_id, rate) {
+			 return createPostRequest('book/' + biblio_id + '/rate', {rate: rate});
+		},
+		getBookComments: function (biblio_id) {
+			 return createGetRequest('book/' + biblio_id + '/comments');
+		},
+		setBookComments: function (biblio_id, text) {
+			 return createPostRequest('book/' + biblio_id + '/comment', {text: text});
+		},
+		setBookFav: function (biblio_id) {
+			 return createPostRequest('book/' + biblio_id + '/favorit');
+		},
+		unsetBookFav: function (biblio_id) {
+			 return createPostRequest('book/' + biblio_id + '/unfavorit');
 		}
 	};
 

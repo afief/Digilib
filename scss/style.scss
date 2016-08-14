@@ -164,6 +164,7 @@ body {
 			.title {
 				font-size: 1.2em;
 				color: $color-main;
+
 			}
 			.info {
 				color: #666;
@@ -181,6 +182,10 @@ body {
 		background-color: $color-main;
 		.title, .author {
 			color: white;
+			text-transform: capitalize;
+			span {
+				font-weight: bold;
+			}
 		}
 		.button-bar {
 			background-color: transparent;
@@ -223,12 +228,11 @@ body {
 			border-bottom: solid 1px $color-main-light;
 		}
 		.thumbnail {
-			float: left;
-			width: 30%;
-			max-width: 80px;
+			width: 80px;
+			position: absolute;
 			height: 130px;
-			margin-right: 4%;
-			background-size: cover;
+			left: 10px;
+			top: 10px;
 			.text {
 				font-size: 1.5em;
 				font-weight: bold;
@@ -236,16 +240,36 @@ body {
 				padding: 5px;
 			}
 		}
-		.detail {
-			max-width: 66%;
-			float: left;
-			.info {
-				color: #666;
-				font-size: 0.9em;
-				.icon {
-					color: $color-main;
+		&.book-info {
+			position: relative;
+			padding: 10px;
+			.detail {
+				width: 100%;
+				box-sizing: border-box;
+				padding-left: 90px;
+				.info {
+
+					color: #666;
+					font-size: 0.9em;
+					.icon {
+						color: $color-main;
+					}
+					.h {
+						font-size: 0.8em;
+					}
+					.c {
+						display: block;
+						font-size: 1.1em;
+						font-weight: bold;
+					}
 				}
 			}
+		}
+	}
+	.button-bar {
+		padding: 0px;
+		.button {
+			line-height: 49px;
 		}
 	}
 	&.notif-page {

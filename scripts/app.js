@@ -64,11 +64,11 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 	})
 
 	.state('app.buku-review', {
-		url: '/buku/:id',
+		url: '/buku/:id/review',
 		views: {
 			content: {
 				templateUrl: 'templates/buku-review.html',
-				controller: 'BukuController'
+				controller: 'BukuReviewController'
 			}
 		}
 	})

@@ -9973,7 +9973,10 @@ body {
   padding: 20px 20px 0px 20px;
   background-color: #3b93ac; }
   .book-detail .banner-head .title, .book-detail .banner-head .author, .notif-page .banner-head .title, .notif-page .banner-head .author {
-    color: white; }
+    color: white;
+    text-transform: capitalize; }
+    .book-detail .banner-head .title span, .book-detail .banner-head .author span, .notif-page .banner-head .title span, .notif-page .banner-head .author span {
+      font-weight: bold; }
   .book-detail .banner-head .button-bar, .notif-page .banner-head .button-bar {
     background-color: transparent;
     margin-top: 10px; }
@@ -10009,25 +10012,39 @@ body {
     margin-bottom: 0px;
     border-bottom: solid 1px #7bbfd2; }
   .book-detail .wrapper .thumbnail, .notif-page .wrapper .thumbnail {
-    float: left;
-    width: 30%;
-    max-width: 80px;
+    width: 80px;
+    position: absolute;
     height: 130px;
-    margin-right: 4%;
-    background-size: cover; }
+    left: 10px;
+    top: 10px; }
     .book-detail .wrapper .thumbnail .text, .notif-page .wrapper .thumbnail .text {
       font-size: 1.5em;
       font-weight: bold;
       color: white;
       padding: 5px; }
-  .book-detail .wrapper .detail, .notif-page .wrapper .detail {
-    max-width: 66%;
-    float: left; }
-    .book-detail .wrapper .detail .info, .notif-page .wrapper .detail .info {
-      color: #666;
-      font-size: 0.9em; }
-      .book-detail .wrapper .detail .info .icon, .notif-page .wrapper .detail .info .icon {
-        color: #3b93ac; }
+  .book-detail .wrapper.book-info, .notif-page .wrapper.book-info {
+    position: relative;
+    padding: 10px; }
+    .book-detail .wrapper.book-info .detail, .notif-page .wrapper.book-info .detail {
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: 90px; }
+      .book-detail .wrapper.book-info .detail .info, .notif-page .wrapper.book-info .detail .info {
+        color: #666;
+        font-size: 0.9em; }
+        .book-detail .wrapper.book-info .detail .info .icon, .notif-page .wrapper.book-info .detail .info .icon {
+          color: #3b93ac; }
+        .book-detail .wrapper.book-info .detail .info .h, .notif-page .wrapper.book-info .detail .info .h {
+          font-size: 0.8em; }
+        .book-detail .wrapper.book-info .detail .info .c, .notif-page .wrapper.book-info .detail .info .c {
+          display: block;
+          font-size: 1.1em;
+          font-weight: bold; }
+
+.book-detail .button-bar, .notif-page .button-bar {
+  padding: 0px; }
+  .book-detail .button-bar .button, .notif-page .button-bar .button {
+    line-height: 49px; }
 
 .book-detail.notif-page, .notif-page.notif-page {
   padding: 10px; }

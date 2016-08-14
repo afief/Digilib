@@ -29,8 +29,8 @@
 						<span ng-click="setRating(5)" class="star icon" ng-class="{'ion-android-star': (rating >= 4), 'ion-android-star-half': ((rating >= 4.3) && (rating < 4.7)), 'ion-android-star-outline': (rating < 4.3)}"></span>
 					</div>
 					<div class="item item-text-wrap">
-						<textarea placeholder="Review" style="height: 100px; width: 100%; padding: 10px; box-shadow: 1px 1px 7px -4px #444;"></textarea>
-						<button class="button icon-left ion-paper-airplane button-full button-positive">
+						<textarea placeholder="Review" style="height: 100px; width: 100%; padding: 10px; box-shadow: 1px 1px 7px -4px #444;" ng-model="input.comment"></textarea>
+						<button class="button icon-left ion-paper-airplane button-full button-positive" ng-click="doSendComment()">
 							Kirim Review
 						</button>
 					</div>
@@ -41,33 +41,36 @@
 				<div class="item item-divider">
 					Review
 				</div>
-				<div class="item item-text-wrap">
+				<div class="item item-text-wrap" ng-if="comments.length">
 
-					<div class="comment" ng-repeat="review in reviews track by $index">
+					<div class="comment" ng-repeat="comment in comments track by $index">
 						<div class="avatar">
 							<img src="img/default-user-image.png" alt="">
 						</div>
 						<div class="detail">
-							<div class="name">{{review.name}}</div>
-							<div class="date">{{review.date}}</div>
+							<div class="name">{{comment.member_name}}</div>
+							<div class="date">{{comment.input_date}}</div>
 							<div class="content">
-								{{review.content}}
+								{{comment.comment}}
 							</div>
-							<div class="buttons">
+							<!-- <div class="buttons">
 								<button class="button button-clear" ng-class="{'button-stable': !review.like, 'button-positive': review.like}" ng-click="review.like = !review.like">
 									<span class="icon ion-thumbsup"></span>
 									<span>Like</span>
 								</button>
-
+							
 								<button class="button button-clear button-positive">
 									<span class="icon ion-reply"></span>
 									<span>Reply</span>
 								</button>
-
-							</div>
+							
+							</div> -->
 						</div>
 					</div>
 
+				</div>
+				<div class="item item-text-wrap text-center" ng-if="!comments.length">
+					<h3>Belum Ada Review</h3>
 				</div>
 			</div>
 		</div>
