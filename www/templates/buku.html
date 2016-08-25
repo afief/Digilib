@@ -72,6 +72,18 @@
 					</a>
 				</div>
 			</div>
+
+			<div class="card list" ng-if="book.items">
+				<div class="item item-divider">
+					Ketersediaan
+				</div>
+				<div class="item"  ng-repeat="item in book.items track by $index">
+					<h2>{{item.item_code}}</h2>	
+					<p ng-if="item.due_date">Dipinjam</p>
+					<p ng-if="item.due_date">Jatuh Tempo : {{item.due_date}}</p>
+					<p ng-if="!item.due_date">Tersedia</p>
+				</div>
+			</div>
 		</div>
 	</ion-content>
 </ion-view>

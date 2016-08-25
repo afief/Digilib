@@ -4,27 +4,26 @@
 		<div class="header">
 			<div class="icon ion-ios-book">
 			</div>
-			<div class="title">Daftar Buku Dipinjam</div>
+			<div class="title">Catatan Peminjaman</div>
 		</div>
 
 		<div class="cards books">
-			<div class="card book" ng-repeat="book in borroweds track by $index">
-				<div class="thumbnail" ng-show="book.thumbnail" ng-style="{backgroundImage: 'url(' + book.thumbnail + ')'}">
+			<div class="card book" ng-repeat="book in books track by $index" ng-click="openBook(book.biblio_id)" ng-class="{loan: (book.is_return == '0')}">
+				<div class="thumbnail" ng-style="{backgroundImage: 'url(' + getBookThumbnail(book.image) + ')'}" ng-show="book.image">
 				</div>
-				<div class="thumbnail" ng-hide="book.thumbnail" ng-style="{'background-color': getColor()}">
+				<div class="thumbnail" ng-hide="book.image" ng-style="{'background-color': getColor($index)}">
 					<div class="text">
 						{{book.title}}
 					</div>
 				</div>
 				<div class="detail">
 					<div class="title">{{book.title}}</div>
-					<div class="info">by {{book.author}}</div>
-
-					<div class="info">{{book.pages_count}} Halaman</div>
-					<div class="info">ISBN : {{book.isbn}}</div>
-
-					<div class="info">Peminjaman : <b>{{book.date_borrow}}</b></div>
-					<div class="info">Pengembalian  : <b>{{book.date_return}}</b></div>
+					<div class="info">{{book.authors}}</div>
+					<div class="info">{{book.publisher_name}} {{book.publish_year}}</div>
+					<hr>
+					<div class="info">Tanggal Pinjam : <span class="v">{{book.loan_date}}</span></div>
+					<div class="info">Jatuh Tempo : <span class="v">{{book.loan_date}}</span></div>
+					<div class="info">Tanggal Pengembalian : <span class="v">{{book.return_date}}</span></div>
 				</div>
 			</div>
 		</div>

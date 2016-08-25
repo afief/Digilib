@@ -11,7 +11,7 @@
 				</button>
 			</ion-nav-buttons>
 			<ion-nav-buttons side="right">
-				<button class="button">
+				<button class="button" ng-click="showRightMenu($event)">
 					<i class="icon ion-android-more-vertical"></i>
 				</button>
 			</ion-nav-buttons>
@@ -54,7 +54,7 @@
 
 				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/pinjaman">
 					<span class="icon ion-ios-book"></span>
-					<span>Buku Pinjaman</span>
+					<span>Catatan Peminjaman</span>
 				</a>
 
 				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/favorit">
@@ -82,3 +82,15 @@
 		
 	</ion-side-menu>
 </ion-side-menus>
+
+
+<script id="menu-pop.html" type="text/ng-template">
+	<ion-popover-view style="height: 110px">
+		<ion-content>
+			<div class="list">
+				<div class="item item-icon-left" ng-click="doViewRefresh()"><i class="icon ion-loop"></i>Refresh</div>
+				<div class="item item-icon-left" ng-click="doViewHelp()"><i class="icon ion-help-circled"></i>FAQ</div>
+			</div>
+		</ion-content>
+	</ion-popover-view>
+</script>

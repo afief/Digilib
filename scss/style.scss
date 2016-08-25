@@ -11,6 +11,11 @@ body {
 	font-family: "RobotoDraft", sans-serif;
 }
 
+hr {
+	border: none;
+    border-top: 1px dashed #8c8b8b;
+}
+
 .view {
 	.nav-bar-container {
 		.bar {
@@ -173,6 +178,9 @@ body {
 					color: $color-main;
 				}
 			}
+		}
+		&.loan {
+			border: solid 2px #efacac;
 		}
 	}
 }

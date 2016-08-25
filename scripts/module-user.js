@@ -314,7 +314,11 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 		},
 		unsetBookFav: function (biblio_id) {
 			 return createPostRequest('book/' + biblio_id + '/unfavorit');
-		}
+		},
+
+		getBookLoans: function () {
+			 return createGetRequest('user/books');
+		},
 	};
 
 }]);

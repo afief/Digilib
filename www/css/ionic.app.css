@@ -9847,6 +9847,10 @@ a.button {
 body {
   font-family: "RobotoDraft", sans-serif; }
 
+hr {
+  border: none;
+  border-top: 1px dashed #8c8b8b; }
+
 .view .nav-bar-container .bar.bar-header {
   background-color: #3b93ac;
   font-weight: bold;
@@ -9968,6 +9972,8 @@ body {
     font-size: 0.9em; }
     .books .book .detail .info .icon {
       color: #3b93ac; }
+  .books .book.loan {
+    border: solid 2px #efacac; }
 
 .book-detail .banner-head, .notif-page .banner-head {
   padding: 20px 20px 0px 20px;

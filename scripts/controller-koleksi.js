@@ -60,4 +60,14 @@ controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '
 		$scope.doRefresh(true);
 	};
 
+	$scope.$on('refresh', function() {
+		offset = 0;
+		limit = 10;
+		param = {
+			offset: offset,
+			limit: limit
+		};
+		$scope.doRefresh(true);
+	});
+
 }]);

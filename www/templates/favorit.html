@@ -4,37 +4,37 @@
 		<div class="header">
 			<div class="icon ion-ios-heart">
 			</div>
-			<div class="title">Daftar Buku Difavoritkan</div>
+			<div class="title">Buku Favorit</div>
 		</div>
 		
 		<div class="cards books">
-			<div class="card book" ng-repeat="book in books track by $index" ng-click="openBook($index + 1)">
-				<div class="thumbnail" ng-show="book.thumbnail" ng-style="{backgroundImage: 'url(' + book.thumbnail + ')'}">
+			<div class="card book" ng-repeat="book in books track by $index" ng-click="openBook(book.biblio_id)">
+				<div class="thumbnail" ng-style="{backgroundImage: 'url(' + getBookThumbnail(book.image) + ')'}" ng-show="book.image">
 				</div>
-				<div class="thumbnail" ng-hide="book.thumbnail" ng-style="{'background-color': getColor()}">
+				<div class="thumbnail" ng-hide="book.image" ng-style="{'background-color': getColor($index)}">
 					<div class="text">
 						{{book.title}}
 					</div>
 				</div>
 				<div class="detail">
 					<div class="title">{{book.title}}</div>
-					<div class="info">by {{book.author}}</div>
+					<div class="info">{{book.authors}}</div>
+					<div class="info">{{book.publisher_name}}</div>
+					<div class="info">{{book.publish_year}}</div>
 					<div class="info stars">
-						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 1), 'ion-android-star-half': ((book.rating >= 0.3) && (book.rating < 0.7)), 'ion-android-star-outline': (book.rating < 0.3)}"></span>
-						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 2), 'ion-android-star-half': ((book.rating >= 1.3) && (book.rating < 1.7)), 'ion-android-star-outline': (book.rating < 1.3)}"></span>
-						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 2), 'ion-android-star-half': ((book.rating >= 2.3) && (book.rating < 2.7)), 'ion-android-star-outline': (book.rating < 2.3)}"></span>
-						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 3), 'ion-android-star-half': ((book.rating >= 3.3) && (book.rating < 3.7)), 'ion-android-star-outline': (book.rating < 3.3)}"></span>
-						<span class="star icon" ng-class="{'ion-android-star': (book.rating >= 4), 'ion-android-star-half': ((book.rating >= 4.3) && (book.rating < 4.7)), 'ion-android-star-outline': (book.rating < 4.3)}"></span>
-						{{book.rating}}
+						<span class="star icon" ng-class="{'ion-android-star': (book.rate >= 1), 'ion-android-star-half': ((book.rate >= 0.3) && (book.rate < 0.7)), 'ion-android-star-outline': (book.rate < 0.3)}"></span>
+						<span class="star icon" ng-class="{'ion-android-star': (book.rate >= 2), 'ion-android-star-half': ((book.rate >= 1.3) && (book.rate < 1.7)), 'ion-android-star-outline': (book.rate < 1.3)}"></span>
+						<span class="star icon" ng-class="{'ion-android-star': (book.rate >= 2), 'ion-android-star-half': ((book.rate >= 2.3) && (book.rate < 2.7)), 'ion-android-star-outline': (book.rate < 2.3)}"></span>
+						<span class="star icon" ng-class="{'ion-android-star': (book.rate >= 3), 'ion-android-star-half': ((book.rate >= 3.3) && (book.rate < 3.7)), 'ion-android-star-outline': (book.rate < 3.3)}"></span>
+						<span class="star icon" ng-class="{'ion-android-star': (book.rate >= 4), 'ion-android-star-half': ((book.rate >= 4.3) && (book.rate < 4.7)), 'ion-android-star-outline': (book.rate < 4.3)}"></span>
 					</div>
-					<div class="info">{{book.pages_count}} Halaman</div>
-					<div class="info">ISBN : {{book.isbn}}</div>
-					<div class="info">Tahun : {{book.year}}</div>
-					<div class="info">Tersedia : <b>{{book.stock.available}}</b> dari <b>{{book.stock.total}}</b> buku</div>
-					<div class="info">{{book.review_count}} Review</div>
 				</div>
 			</div>
 		</div>
+
+		<button class="button button-full button-primary" ng-click="doLoadMore()" ng-show="canLoadMore()">
+			<span style="float: initial; display: inline-block;" class="icon ion-chevron-down"></span>
+		</button>
 
 	</ion-content>
 </ion-view>

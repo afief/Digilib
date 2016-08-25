@@ -10,7 +10,8 @@ controll.run(['$ionicPlatform', '$ionicHistory', '$rootScope', 'user', '$locatio
 /*
 Main Controller
 */
-controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$location', '$ionicSideMenuDelegate', 'user', function($scope, $state, $ionicHistory, $location, $ionicSideMenuDelegate, user) {
+controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$location', '$ionicSideMenuDelegate', 'user', '$ionicPopover', 
+	function($scope, $state, $ionicHistory, $location, $ionicSideMenuDelegate, user, $ionicPopover) {
 	console.info("IndexController");
 
 	$scope.$on('$ionicView.enter', function(e, ts) {
@@ -117,4 +118,31 @@ controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$l
 		date_return: "7 Oktober 2015"
 	}
 	];
+
+
+	/*
+	 * Popup Kanan Atas
+	 */
+	$ionicPopover.fromTemplateUrl('menu-pop.html', {
+		scope: $scope
+	}).then(function(popover) {
+		$scope.popTopRight = popover;
+	});
+	$scope.showRightMenu = function($event) {
+		$scope.popTopRight.show($event);
+	};
+
+	$scope.$on('$destroy', function() {
+		$scope.popTopRight.remove();
+	});
+
+	$scope.doViewRefresh = function() {
+		$scope.popTopRight.hide();
+
+		$scope.$broadcast('refresh');
+	};
+
+	$scope.doViewHelp = function() {
+		$scope.popTopRight.hide();
+	};
 }]);
