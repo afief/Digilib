@@ -9857,7 +9857,8 @@ hr {
   color: white; }
   .view .nav-bar-container .bar.bar-header .buttons.back-button {
     color: white;
-    margin-right: 15px; }
+    margin-right: 15px;
+    padding: 0px 8px; }
     .view .nav-bar-container .bar.bar-header .buttons.back-button .back-text {
       display: none; }
   .view .nav-bar-container .bar.bar-header .buttons .button {
@@ -9973,7 +9974,7 @@ hr {
     .books .book .detail .info .icon {
       color: #3b93ac; }
   .books .book.loan {
-    border: solid 2px #efacac; }
+    border: solid 3px #ea6a6a; }
 
 .book-detail .banner-head, .notif-page .banner-head {
   padding: 20px 20px 0px 20px;

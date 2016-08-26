@@ -14,6 +14,10 @@ mainApp.run(['$ionicConfig', '$ionicPlatform', '$ionicHistory', '$rootScope', fu
 		}
 	});
 
+	if (screen.lockOrientation) {
+		screen.lockOrientation('portrait');
+	}
+
 	//$rootScope.user = user;
 
 }]);

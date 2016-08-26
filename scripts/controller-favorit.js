@@ -61,4 +61,23 @@ controll.controller('FavoritController', ['$scope', '$state', '$ionicHistory', '
 		$scope.doRefresh(true);
 	};
 
+	$scope.doReset = function() {
+		offset = 0;
+		limit = 10;
+		param = {
+			offset: offset,
+			limit: limit,
+			favorit: 1
+		};
+		$scope.doRefresh(true);
+	};
+
+	$scope.$on("$ionicView.enter", function() {
+		$scope.doReset();
+	});
+
+	$scope.$on('refresh', function() {
+		$scope.doReset();
+	});
+
 }]);

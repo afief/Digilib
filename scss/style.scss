@@ -27,6 +27,7 @@ hr {
 					&.back-button {
 						color: white;
 						margin-right: 15px;
+						padding: 0px 8px;
 						.back-text {
 							display: none;
 						}
@@ -180,7 +181,7 @@ hr {
 			}
 		}
 		&.loan {
-			border: solid 2px #efacac;
+			border: solid 3px #ea6a6a;
 		}
 	}
 }

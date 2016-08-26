@@ -11,4 +11,8 @@ controll.controller('PinjamanController', ['$scope', '$state', '$ionicHistory', 
 
 	$scope.doRefresh();
 
+	$scope.$on('refresh', function() {
+		$scope.doRefresh();
+	});
+
 }]);
