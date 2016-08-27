@@ -4,11 +4,11 @@
 			<div class="wrapper">
 				<div class="list notifications">
 
-					<div class="item item-avatar" ng-repeat="review in reviews track by $index">
-						<img ng-src="{{review.thumbnail}}" alt="">
+					<div class="item item-avatar" ng-repeat="notif in notifs['data'] track by $index" ng-class="{unread: (notif.is_read == '0')}">
+						<img ng-src="{{getMemberAvatar(notif.from_image)}}" alt="">
 						
-						<h2><b>{{review.name}}</b> Mengomentari Review Anda</h2>
-						<p>{{review.date}}</p>							
+						<h2><b>{{notif.from_name}}</b> {{notif.text}}</h2>
+						<p>{{notif.timestamp}}</p>							
 					</div>
 
 				</div>

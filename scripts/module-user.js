@@ -285,7 +285,9 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 
 			return defer.promise;
 		},
-
+		saveBio: function(bio) {
+			return createPostRequest('user', bio);
+		},
 
 		getBooks: function (params) {
 			var str = "";
@@ -319,6 +321,28 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 		getBookLoans: function () {
 			 return createGetRequest('user/books');
 		},
+
+		getMessageList: function() {
+			return createGetRequest('messages');
+		},
+		getMessageTexts: function(member_id) {
+			return createGetRequest('message/' + member_id);
+		},
+		postMessage: function(member_id, text) {
+			return createPostMessage('message', {
+				member_id: member_id,
+				text: text
+			});
+		},
+
+		getNotif: function() {
+			return createGetRequest('notif');
+		},
+		postNotifRead: function(ids) {
+			return createPostRequest('notif/read', {
+				notif_id: ids
+			});
+		}
 	};
 
 }]);

@@ -9940,6 +9940,8 @@ hr {
       font-size: 1.2em;
       font-weight: bold;
       line-height: 1.1em; }
+    .view .view-container ion-content .header .right {
+      float: right; }
 
 .page-koleksi .search {
   margin: 10px; }
@@ -10057,6 +10059,8 @@ hr {
   padding: 10px; }
   .book-detail.notif-page .wrapper, .notif-page.notif-page .wrapper {
     margin: 0px; }
+  .book-detail.notif-page .list .item.unread, .notif-page.notif-page .list .item.unread {
+    background-color: #daedf2; }
 
 .rating-create h4 {
   text-align: center; }
@@ -10117,17 +10121,38 @@ hr {
 .messages .item h2 {
   font-weight: bold; }
 
-.user-profil .wrapper .name {
-  font-size: 1.2em;
-  font-weight: 500;
-  color: #3b93ac; }
+.user-profil .wrapper {
+  position: relative; }
+  .user-profil .wrapper .name {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #ffffff; }
+  .user-profil .wrapper .nip {
+    color: #ffffff;
+    font-size: 1.1em; }
+  .user-profil .wrapper .avatar img {
+    width: 100%; }
+  .user-profil .wrapper .detail {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    padding: 20px;
+    width: 100%;
+    background-color: rgba(68, 68, 68, 0.5); }
+  .user-profil .wrapper .edit-avatar {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: white;
+    padding: 10px; }
+    .user-profil .wrapper .edit-avatar .icon {
+      font-size: 1.7em; }
 
-.user-profil .wrapper .nip {
-  color: #3b93ac;
-  font-size: 1.1em; }
-
-.user-profil .wrapper .avatar img {
-  width: 100%; }
+.user-bio input.edit {
+  width: 100%;
+  padding: 10px 14px;
+  margin: 0px;
+  border: solid 1px #999; }
 
 .logo-big {
   width: 60%;

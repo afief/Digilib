@@ -13,7 +13,7 @@ body {
 
 hr {
 	border: none;
-    border-top: 1px dashed #8c8b8b;
+	border-top: 1px dashed #8c8b8b;
 }
 
 .view {
@@ -132,6 +132,9 @@ hr {
 					font-size: 1.2em;
 					font-weight: bold;
 					line-height: 1.1em;
+				}
+				.right {
+					float: right;
 				}
 			}
 		}
@@ -286,6 +289,13 @@ hr {
 		.wrapper {
 			margin: 0px;
 		}
+		.list {
+			.item {
+				&.unread {
+					background-color: lighten($color-main, 45);
+				}
+			}
+		}
 	}
 }
 
@@ -375,24 +385,48 @@ hr {
 
 .user-profil {
 	.wrapper {
+		position: relative;
 		.name {
-			font-size: 1.2em;
+			font-size: 1.5em;
 			font-weight: 500;
-			color: $color-main;
+			color: #ffffff;
 		}
 		.nip {
-			color: $color-main;
+			color: #ffffff;
 			font-size: 1.1em;
 		}
 		.avatar {
-			
 			img {
 				width: 100%;
 			}
 		}
 		.detail {
-			
+			position: absolute;
+			bottom: 5px;
+			left: 0px;
+			padding: 20px;
+			width: 100%;
+			background-color: transparentize(#444, 0.5);
 		}
+		.edit-avatar {
+			position: absolute;
+			right: 0px;
+			top: 0px;
+			color: white;
+			padding: 10px;
+			.icon {
+				font-size: 1.7em;
+			}
+		}
+	}
+}
+
+.user-bio {
+	input.edit {
+		width: 100%;
+		padding: 10px 14px;
+		margin: 0px;
+		border: solid 1px #999;
 	}
 }
 

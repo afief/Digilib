@@ -1,34 +1,48 @@
-<ion-view view-title="Profil Pengguna">
+<ion-view view-title="Profil Member">
 	<ion-content>
 		
-		<div class="card user-profil">
-			<div class="wrapper row">
-	  			<div class="avatar col col-33">
+		<div class="user-profil">
+			<div class="wrapper">
+	  			<div class="avatar">
 	  				<img ng-src="{{user.profile.member_image}}">
 	  			</div>
-	  			<div class="detail col">
+	  			<div class="detail">
 	  				<div class="name">{{user.profile.member_name}}</div>
 					<div class="nip">{{user.profile.member_id}}</div>
-					<div class="info">{{user.profile.member_email}}</div>
-					<div class="status">{{user.profile.member_phone}}</div>
 	  			</div>
+
+				<div class="edit-avatar">
+					<i class="icon ion-compose">&nbsp;</i>
+				</div>
 	  		</div>
 	  	</div>
 
-		<div class="list card info">
+		<div class="user-bio padding">
+			
+			<div class="list">
+				<div class="item item-divider">
+					Nomor telepon
+				</div>
+				<div class="item item-icon-right">
+					<span ng-if="!isEditPhone">{{user.profile.member_phone}}&nbsp;</span>
+					<input type="text" class="edit" ng-model="edit.member_phone" ng-if="isEditPhone">
+					<i class="icon ion-compose" ng-click="editPhone()" ng-if="!isEditPhone"></i>
+					<i class="icon ion-android-upload" ng-click="saveBio()" ng-if="isEditPhone"></i>
+				</div>
+			</div>
 
-			<span class="item item-icon-right">
-				Buku Dipinjam
-				<span class="icon">12</span>
-			</span>
-			<span class="item item-icon-right">
-				Buku Dikembalikan
-				<span class="icon">23</span>
-			</span>
-			<span class="item item-icon-right">
-				Buku Terlambat
-				<span class="icon">2</span>
-			</span>
+			<div class="list">
+				<div class="item item-divider">
+					Alamat
+				</div>
+				<div class="item item-icon-right">
+					<span ng-if="!isEditAddress">{{user.profile.member_address}}&nbsp;</span>
+					<input type="text" class="edit" ng-model="edit.member_address" ng-if="isEditAddress">
+					<i class="icon ion-compose" ng-click="editAddress()" ng-if="!isEditAddress"></i>
+					<i class="icon ion-android-upload" ng-click="saveBio()" ng-if="isEditAddress"></i>
+				</div>
+			</div>
+			
 
 		</div>
 

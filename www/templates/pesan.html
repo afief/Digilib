@@ -3,7 +3,10 @@
 		<div class="header">
 			<div class="icon ion-ios-email">
 			</div>
-			<div class="title">2 Pesan</div>
+			<div class="title" ng-show="messages.length">{{messages.length}} Pesan</div>
+			<div class="title" ng-hide="messages.length">Tidak ada pesan</div>
+
+			<div class="right icon ion-plus"></div>
 		</div>
 
 		<div class="notif-page">
@@ -11,10 +14,10 @@
 				<div class="list notifications messages">
 
 					<div class="item item-avatar" ng-repeat="msg in messages track by $index">
-						<img ng-src="{{msg.thumbnail}}" alt="">
-						<h2>{{msg.subject}}</h2>
-						<p>{{msg.name}}</p>
-						<p>{{msg.date}}</p>
+						<img ng-src="{{getMemberAvatar(msg.member_image)}}" alt="">
+						<h2>{{msg.member_name}}</h2>
+						<p>{{msg.last_message}}</p>
+						<p>{{msg.last_time}}</p>
 					</div>
 
 				</div>

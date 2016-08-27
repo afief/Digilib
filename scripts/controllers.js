@@ -43,6 +43,14 @@ controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$l
 		 return "http://localhost/perpus/lib/phpthumb/phpThumb.php?src=../../images/docs/" + argument + "&w=100";
 	};
 
+	$scope.getMemberAvatar = function (url) {
+		if (url) {
+			return url;
+		} else {
+			return 'img/default-user-image.png';
+		}
+	};
+
 
 	$scope.reviews = [
 	{
@@ -64,23 +72,6 @@ controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$l
 		date: "6 Agustus 2015",
 		content: "Proin euismod sapien quis libero luctus elementum. Mauris semper ullamcorper porta. Integer aliquam ullamcorper ante vel convallis. Fusce nec lacus quis mi accumsan lobortis. Aliquam erat volutpat. Nunc condimentum pharetra accumsan. Suspendisse pharetra convallis dui, eu faucibus eros rhoncus nec.",
 		like: false,
-		thumbnail: "img/nurul.jpg"
-	}
-	];
-
-	$scope.messages = [
-	{
-		name: "Admin",
-		date: "10 Oktober 2015",
-		subject: "Teguran",
-		content: "Buku `Merajut Untaian Rindu` telah melebihi waktu pengembalian.",
-		thumbnail: "img/djati.jpg"
-	},
-	{
-		name: "Admin",
-		date: "3 Oktober 2015",
-		subject: "Respon Tanggapan",
-		content: "Terimakasih telah memberikan tanggapan pada tanggal 2 Oktober 2015. Kami akan terus memperbaiki aplikasi ini menjadi lebih baik. Terima kasih.",
 		thumbnail: "img/nurul.jpg"
 	}
 	];
