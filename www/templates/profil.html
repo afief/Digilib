@@ -7,7 +7,12 @@
 	  				<img ng-src="{{user.profile.member_image}}">
 	  			</div>
 	  			<div class="detail">
-	  				<div class="name">{{user.profile.member_name}}</div>
+	  				<div class="name item item-icon-right">
+	  					<span ng-if="!isEditName">{{user.profile.member_name}}&nbsp;</span>
+						<input type="text" class="edit" ng-model="edit.member_name" ng-if="isEditName">
+						<i class="icon ion-compose" ng-click="editName()" ng-if="!isEditName"></i>
+						<i class="icon ion-android-upload" ng-click="saveBio()" ng-if="isEditName"></i>
+	  				</div>
 					<div class="nip">{{user.profile.member_id}}</div>
 	  			</div>
 

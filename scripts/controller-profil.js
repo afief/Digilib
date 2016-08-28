@@ -4,12 +4,10 @@ controll.controller('ProfilController', ['$scope', '$state', '$ionicHistory', 'u
 	$ionicHistory.clearHistory();
 
 	$scope.edit = {
-		member_phone: '',
-		member_address: ''
+		member_name: user.profile.member_name,
+		member_phone: user.profile.member_phone,
+		member_address: user.profile.member_address
 	};
-
-	$scope.edit.member_phone = user.profile.member_phone;
-	$scope.edit.member_address = user.profile.member_address;
 
 	$scope.isEditPhone = false;
 	$scope.editPhone = function() {
@@ -27,14 +25,24 @@ controll.controller('ProfilController', ['$scope', '$state', '$ionicHistory', 'u
 		}
 	};
 
+	$scope.isEditName = false;
+	$scope.editName = function() {
+		if (!$scope.isEditName) {
+			$scope.edit.member_name = user.profile.member_name;
+			$scope.isEditName = true;
+		}
+	};
+
 	$scope.saveBio = function() {
 		$ionicLoading.show({template: 'Menyimpan Biodata'});
 		user.saveBio($scope.edit).then(function() {
 			user.profile.member_phone = $scope.edit.member_phone;
 			user.profile.member_address = $scope.edit.member_address;
+			user.profile.member_name = $scope.edit.member_name;
 
 			$scope.isEditPhone = false;
 			$scope.isEditAddress = false;
+			$scope.isEditName = false;
 			$ionicLoading.hide();
 		}, function() {
 			$ionicLoading.hide();

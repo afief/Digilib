@@ -329,7 +329,7 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 			return createGetRequest('message/' + member_id);
 		},
 		postMessage: function(member_id, text) {
-			return createPostMessage('message', {
+			return createPostRequest('message', {
 				member_id: member_id,
 				text: text
 			});

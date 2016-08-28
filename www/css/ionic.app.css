@@ -10147,6 +10147,19 @@ hr {
     padding: 10px; }
     .user-profil .wrapper .edit-avatar .icon {
       font-size: 1.7em; }
+  .user-profil .wrapper .item.item-icon-right {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white; }
+    .user-profil .wrapper .item.item-icon-right input.edit {
+      width: 100%;
+      padding: 10px 14px;
+      margin: 0px;
+      border: solid 1px #999; }
 
 .user-bio input.edit {
   width: 100%;
@@ -10232,3 +10245,12 @@ hr {
     height: 184px;
     background-size: contain;
     background-repeat: no-repeat; }
+
+.new-message .form label {
+  padding-left: 8px;
+  color: #444; }
+
+.new-message .form input, .new-message .form textarea {
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  resize: vertical; }

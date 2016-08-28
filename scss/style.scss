@@ -418,6 +418,21 @@ hr {
 				font-size: 1.7em;
 			}
 		}
+		.item.item-icon-right {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-left: 0px;
+			background-color: transparent;
+			border: none;
+			outline: none;
+			color: white;
+			input.edit {
+				width: 100%;
+				padding: 10px 14px;
+				margin: 0px;
+				border: solid 1px #999;
+			}
+		}
 	}
 }
 
@@ -521,5 +536,20 @@ hr {
 		height: 184px;
 		background-size: contain;
 		background-repeat: no-repeat;
+	}
+}
+
+
+.new-message {
+	.form {
+		label {
+			padding-left: 8px;
+			color: #444;
+		}
+		input, textarea {
+			padding: 8px 10px;
+			margin-bottom: 10px;
+			resize: vertical;
+		}
 	}
 }
