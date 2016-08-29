@@ -10025,7 +10025,8 @@ hr {
     position: absolute;
     height: 130px;
     left: 10px;
-    top: 10px; }
+    top: 10px;
+    background-size: contain; }
     .book-detail .wrapper .thumbnail .text, .notif-page .wrapper .thumbnail .text {
       font-size: 1.5em;
       font-weight: bold;
@@ -10160,6 +10161,9 @@ hr {
       padding: 10px 14px;
       margin: 0px;
       border: solid 1px #999; }
+  .user-profil .wrapper input[type='file'] {
+    position: absolute;
+    height: 0px; }
 
 .user-bio input.edit {
   width: 100%;
@@ -10254,3 +10258,81 @@ hr {
   padding: 8px 10px;
   margin-bottom: 10px;
   resize: vertical; }
+
+.pesan-single {
+  padding-top: 44px;
+  position: relative;
+  height: 100%; }
+  .pesan-single ion-content {
+    top: 44px;
+    bottom: 50px; }
+    .pesan-single ion-content ul {
+      padding: 0px;
+      margin: 0px; }
+      .pesan-single ion-content ul li {
+        margin: 10px 0px;
+        position: relative;
+        width: 100%;
+        padding-right: 40px;
+        min-width: 300px;
+        max-width: 100%;
+        padding-left: 60px; }
+        .pesan-single ion-content ul li .avatar {
+          position: absolute;
+          left: 5px;
+          top: 0px;
+          width: 50px;
+          height: 50px;
+          background-size: contain;
+          border-radius: 3px; }
+        .pesan-single ion-content ul li .box {
+          width: 100%;
+          padding: 7px;
+          border-radius: 3px;
+          border: solid 1px #3b93ac;
+          background-color: white; }
+          .pesan-single ion-content ul li .box .name {
+            color: #3b93ac;
+            font-weight: bold; }
+          .pesan-single ion-content ul li .box .text {
+            color: #444; }
+          .pesan-single ion-content ul li .box .time {
+            color: #666;
+            font-size: 0.8em; }
+        .pesan-single ion-content ul li.own {
+          padding-left: 40px;
+          padding-right: 60px; }
+          .pesan-single ion-content ul li.own .avatar {
+            right: 5px;
+            left: inherit;
+            top: 5px; }
+          .pesan-single ion-content ul li.own .box {
+            background-color: #daedf2; }
+  .pesan-single .message-input {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 50px;
+    width: 100%;
+    padding-right: 50px;
+    border-top: solid 1px #3b93ac;
+    background-color: #3b93ac; }
+    .pesan-single .message-input input {
+      width: 100%;
+      padding: 0px 15px;
+      font-size: 1.2em;
+      line-height: 50px;
+      height: 50px; }
+    .pesan-single .message-input button {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      color: white;
+      background-color: transparent; }
+
+.version-text {
+  position: absolute;
+  z-index: 100;
+  color: white;
+  right: 10px;
+  bottom: 0px; }

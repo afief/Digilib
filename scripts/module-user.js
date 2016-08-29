@@ -192,7 +192,7 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 			var defer = $q.defer();
 
 			Upload.upload({
-				url: apiUrl + "changeAvatar",
+				url: apiUrl + "user/avatar",
 				method: 'POST',
 				file: file,
 				sendFieldsAs: 'form',
@@ -342,15 +342,23 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 			return createPostRequest('notif/read', {
 				notif_id: ids
 			});
+		},
+
+		getVersion: function(v) {
+			return createGetRequest('check-version/' + v);
 		}
 	};
 
 }]);
 
-userModule.run(["user", "$rootScope", "$http", "$ionicPlatform", function(user, $rootScope, $http, $ionicPlatform) {
+userModule.run(["user", "$rootScope", "$http", "$ionicPlatform", "$location", function(user, $rootScope, $http, $ionicPlatform, $location) {
 	$ionicPlatform.ready(function() {
 		console.log("Ionic Ready");
 		$rootScope.user = user;
-		user.cek();
+		user.cek().then(function() {
+
+		}, function() {
+			$location.path('/login');
+		});
 	});
 }]);

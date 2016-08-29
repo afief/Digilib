@@ -55,4 +55,8 @@ controll.controller('PesanController', ['$scope', '$state', '$ionicHistory', 'us
 		});
 	};
 
+	$scope.openChat = function(member_id) {
+		$state.go('app.pesan-single', {member_id: member_id});
+	};
+
 }]);

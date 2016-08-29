@@ -4,7 +4,7 @@
 			<div class="wrapper">
 				<div class="list notifications">
 
-					<div class="item item-avatar" ng-repeat="notif in notifs['data'] track by $index" ng-class="{unread: (notif.is_read == '0')}">
+					<div class="item item-avatar" ng-repeat="notif in notifs['data'] track by $index" ng-class="{unread: (notif.is_read == '0')}" ng-click="doOpen(notif)">
 						<img ng-src="{{getMemberAvatar(notif.from_image)}}" alt="">
 						
 						<h2><b>{{notif.from_name}}</b> {{notif.text}}</h2>

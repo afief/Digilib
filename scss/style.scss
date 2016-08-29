@@ -245,6 +245,7 @@ hr {
 			height: 130px;
 			left: 10px;
 			top: 10px;
+			background-size: contain;
 			.text {
 				font-size: 1.5em;
 				font-weight: bold;
@@ -433,6 +434,10 @@ hr {
 				border: solid 1px #999;
 			}
 		}
+		input[type='file'] {
+			position: absolute;
+			height: 0px;
+		}
 	}
 }
 
@@ -552,4 +557,98 @@ hr {
 			resize: vertical;
 		}
 	}
+}
+
+.pesan-single {
+	padding-top: 44px;
+	position: relative;
+	height: 100%;
+	ion-content {
+		top: 44px;
+		bottom: 50px;
+		ul {
+			padding: 0px;
+			margin: 0px;
+			li {
+				margin: 10px 0px;
+				position: relative;
+				width: 100%;
+				padding-right: 40px;
+				min-width: 300px;
+				max-width: 100%;
+				padding-left: 60px;
+				.avatar {
+					position: absolute;
+					left: 5px;
+					top: 0px;
+					width: 50px;
+					height: 50px;
+					background-size: contain;
+					border-radius: 3px;
+				}
+				.box {
+					width: 100%;
+					padding: 7px;
+					border-radius: 3px;
+					border: solid 1px #3b93ac;
+					background-color: white;
+					.name {
+						color: $color-main;
+						font-weight: bold;
+					}
+					.text {
+						color: #444;
+					}
+					.time {
+						color: #666;
+						font-size: 0.8em;
+					}
+				}
+				&.own {
+					padding-left: 40px;
+					padding-right: 60px;
+					.avatar {
+						right: 5px;
+						left: inherit;
+						top: 5px;
+					}
+					.box {
+						background-color: lighten($color-main, 45);
+					}
+				}
+			}
+		}
+	}
+	.message-input {
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		height: 50px;
+		width: 100%;
+		padding-right: 50px;
+		border-top: solid 1px $color-main;
+		background-color: $color-main;
+		input {
+			width: 100%;
+			padding: 0px 15px;
+			font-size: 1.2em;
+			line-height: 50px;
+			height: 50px;
+		}
+		button {
+			position: absolute;
+			right: 0px;
+			top: 0px;
+			color: white;
+			background-color: transparent;
+		}
+	}
+}
+
+.version-text {
+	position: absolute;
+	z-index: 100;
+	color: white;
+	right: 10px;
+	bottom: 0px;
 }

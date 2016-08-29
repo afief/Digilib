@@ -49,4 +49,31 @@ controll.controller('ProfilController', ['$scope', '$state', '$ionicHistory', 'u
 		});
 	};
 
+	$scope.doChangeAvatar = function() {
+		document.getElementById("userImageEl").click();
+	};
+	
+	$scope.changeImage = function(f) {
+		if (f.files.length > 0) {
+			var file = f.files[0];
+
+			$ionicLoading.show({template: "Ganti Profil"});
+			user.changeAvatar(file).then(function(url) {
+				$ionicLoading.hide();
+
+				user.profile.member_image = url;
+
+				if (!$scope.$$phase)
+					$scope.$apply();
+			}, function(err) {
+				$ionicLoading.hide();
+				if (typeof(err) == 'string') {
+					$ionicPopup.alert({template: err, title: "Gagal"});
+				} else {
+					$ionicPopup.alert({template: "Gagal ganti avatar", title: "Gagal"});
+				}
+			});
+		}
+	};
+
 }]);

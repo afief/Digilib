@@ -16,7 +16,9 @@
 					<div class="nip">{{user.profile.member_id}}</div>
 	  			</div>
 
-				<div class="edit-avatar">
+	  			<input type="file" onchange="angular.element(this).scope().changeImage(this)" id="userImageEl">
+
+				<div class="edit-avatar" ng-click="doChangeAvatar()">
 					<i class="icon ion-compose">&nbsp;</i>
 				</div>
 	  		</div>

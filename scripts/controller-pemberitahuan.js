@@ -28,7 +28,7 @@ controll.controller('PemberitahuanController', ['$scope', '$state', '$ionicHisto
 	function reads() {
 		var ids = [];
 		for (var i = 0; i < $scope.notifs.data.length; i++) {
-			if ($scope.notifs.data[i].is_read == '0')
+			if ($scope.notifs.data[i].is_read === '0')
 				ids.push($scope.notifs.data[i].id);
 		}
 
@@ -40,4 +40,10 @@ controll.controller('PemberitahuanController', ['$scope', '$state', '$ionicHisto
 			});
 		}
 	}
+
+	$scope.doOpen = function(notif) {
+		if (notif.text.indexOf('mengirim pesan') === 0) {
+			$state.go('app.pesan-single', {member_id: notif.from_id});
+		}
+	};
 }]);

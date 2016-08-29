@@ -40,7 +40,8 @@ controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$l
 		return colors[id];
 	};
 	$scope.getBookThumbnail = function (argument) {
-		 return "http://localhost/perpus/lib/phpthumb/phpThumb.php?src=../../images/docs/" + argument + "&w=100";
+		return argument;
+		 //return "http://localhost/perpus/lib/phpthumb/phpThumb.php?src=../../images/docs/" + argument + "&w=100";
 	};
 
 	$scope.getMemberAvatar = function (url) {
@@ -50,65 +51,6 @@ controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$l
 			return 'img/default-user-image.png';
 		}
 	};
-
-
-	$scope.reviews = [
-	{
-		name: "Afief Yona R",
-		date: "10 Oktober 2015",
-		content: "Proin euismod sapien quis libero luctus elementum. Mauris semper ullamcorper porta. Integer aliquam ullamcorper ante vel convallis. Fusce nec lacus quis mi accumsan lobortis. Aliquam erat volutpat. Nunc condimentum pharetra accumsan. Suspendisse pharetra convallis dui, eu faucibus eros rhoncus nec.",
-		like: false,
-		thumbnail: "img/afief.jpg"
-	},
-	{
-		name: "Rizky Djati M",
-		date: "9 Agustus 2015",
-		content: "Proin euismod sapien quis libero luctus elementum. Mauris semper ullamcorper porta. Integer aliquam ullamcorper ante vel convallis. Fusce nec lacus quis mi accumsan lobortis. Aliquam erat volutpat. Nunc condimentum pharetra accumsan. Suspendisse pharetra convallis dui, eu faucibus eros rhoncus nec.",
-		like: true,
-		thumbnail: "img/djati.jpg"
-	},
-	{
-		name: "Henida W",
-		date: "6 Agustus 2015",
-		content: "Proin euismod sapien quis libero luctus elementum. Mauris semper ullamcorper porta. Integer aliquam ullamcorper ante vel convallis. Fusce nec lacus quis mi accumsan lobortis. Aliquam erat volutpat. Nunc condimentum pharetra accumsan. Suspendisse pharetra convallis dui, eu faucibus eros rhoncus nec.",
-		like: false,
-		thumbnail: "img/nurul.jpg"
-	}
-	];
-
-
-	$scope.borroweds = [
-	{
-		title: "The Forever War",
-		author: "Joe Haldeman",		
-		thumbnail: "img/books/book5.jpg",
-		pages_count: 300,
-		isbn: "9785412654856",
-		year: 2000,
-		date_borrow: "15 September 2015",
-		date_return: "10 Oktober 2015"
-	},
-	{
-		title: "Ender's Game",
-		author: "Orson Scott",		
-		thumbnail: "img/books/book6.jpg",
-		pages_count: 210,
-		isbn: "9785412654856",
-		year: 2010,
-		date_borrow: "12 September 2015",
-		date_return: "13 Oktober 2015"
-	},
-	{
-		title: "Merajut Untaian Rindu",
-		author: "Alibaba Everest",		
-		thumbnail: "img/books/book1.jpg",
-		pages_count: 250,
-		isbn: "9788935487965",
-		year: 2015,
-		date_borrow: "10 September 2015",
-		date_return: "7 Oktober 2015"
-	}
-	];
 
 
 	/*

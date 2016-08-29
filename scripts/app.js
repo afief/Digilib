@@ -1,6 +1,17 @@
 var mainApp = angular.module('digilib', ['ionic', 'controllers', 'UserModule', 'SettingModule', 'ngFileUpload']);
 
-mainApp.run(['$ionicConfig', '$ionicPlatform', '$ionicHistory', '$rootScope', function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope) {
+mainApp.run(['$ionicConfig', '$ionicPlatform', '$ionicHistory', '$rootScope', 'user', '$ionicPopup', function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope, user, $ionicPopup) {
+
+	user.getVersion(app_version).then(function(res) {
+		$ionicPopup.alert({
+			title: res.title,
+			template: res.text
+		}).then(function() {
+			window.open(res.gplay, "_system");
+		});
+	});
+
+	$rootScope.version_text = app_version_text;
 
 	$ionicPlatform.ready(function() {
 
@@ -83,6 +94,16 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 			content: {
 				templateUrl: 'templates/pesan.html',
 				controller: 'PesanController'
+			}
+		}
+	})
+
+	.state('app.pesan-single', {
+		url: '/pesan-single/:member_id',
+		views: {
+			content: {
+				templateUrl: 'templates/pesan-single.html',
+				controller: 'PesanSingleController'
 			}
 		}
 	})
