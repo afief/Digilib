@@ -9947,7 +9947,7 @@ hr {
   margin: 10px; }
 
 .page-koleksi .topics {
-  height: 100px;
+  height: 60px;
   overflow: hidden;
   overflow-x: scroll;
   padding: 10px 0px; }
@@ -9956,16 +9956,17 @@ hr {
     margin: 0px;
     display: table; }
     .page-koleksi .topics ul li {
-      padding: 20px 10px;
-      width: 80px;
-      height: 80px;
+      font-size: 0.8em;
+      padding: 10px;
+      width: 130px;
+      height: 40px;
       box-sizing: border-box;
       text-align: center;
-      border-radius: 50%;
+      border-radius: 10px;
       text-transform: capitalize;
       border: solid 1px #daedf2;
       background-color: #daedf2;
-      margin: 0px 10px;
+      margin: 0px 5px;
       float: left;
       overflow: hidden; }
 
