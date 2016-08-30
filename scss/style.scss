@@ -144,6 +144,31 @@ hr {
 	.search {
 		margin: 10px;
 	}
+	.topics {
+		height: 100px;
+		overflow: hidden;
+		overflow-x: scroll;
+		padding: 10px 0px;
+		ul {
+			padding: 0px;
+			margin: 0px;
+			display: table;	
+			li {
+				padding: 20px 10px;
+				width: 80px;
+				height: 80px;
+				box-sizing: border-box;
+				text-align: center;
+				border-radius: 50%;
+				text-transform: capitalize;
+				border: solid 1px lighten($color-main, 45%);
+				background-color: lighten($color-main, 45%);
+				margin: 0px 10px;
+				float: left;
+				overflow: hidden;
+			}
+		}
+	}
 }
 .books {
 	.book {

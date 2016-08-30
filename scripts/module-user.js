@@ -335,6 +335,10 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 			});
 		},
 
+		getTopics: function() {
+			return createGetRequest('books/topics');
+		},
+
 		getNotif: function() {
 			return createGetRequest('notif');
 		},

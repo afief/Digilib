@@ -1,6 +1,11 @@
 <ion-view view-title="Koleksi Buku">
 	<ion-content class="page-koleksi">
-
+		
+		<div class="topics">
+			<ul ng-style="{width: (topics.length * 100) + 'px'}">
+				<li ng-repeat="topic in topics track by $index" ng-style="{'background-color': getBG(topic.id)}" ng-click="openTopic(topic.id)">{{topic.topic}}</li>
+			</ul>
+		</div>
 
 		<form ng-submit="doSearch()">
 		<div class="list list-inset search">

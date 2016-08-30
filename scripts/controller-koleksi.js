@@ -13,6 +13,10 @@ controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '
 	$scope.search = {
 		text: ''
 	};
+	$scope.topics = [];
+	user.getTopics().then(function(res) {
+		$scope.topics = res;
+	});
 
 	$scope.openBook = function(n) {
 		$state.go("app.buku", {id: n});
@@ -69,5 +73,11 @@ controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '
 		};
 		$scope.doRefresh(true);
 	});
+
+
+	$scope.getBG = function(id) {
+		var colors = ['#daedf2', '#a5f7b3', '#f7f1a5', '#f7a5a5', '#c9bbf3', '#f3bbe2'];
+		return colors[id % colors.length];
+	};
 
 }]);
