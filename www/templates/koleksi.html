@@ -3,18 +3,23 @@
 		
 		<div class="topics">
 			<ul ng-style="{width: (topics.length * 140) + 'px'}">
-				<li ng-repeat="topic in topics track by $index" ng-style="{'background-color': getBG(topic.id)}" ng-click="openTopic(topic.id)">{{topic.topic}}</li>
+				<li ng-repeat="topic in topics track by $index" ng-style="{'background-color': getBG(topic.id)}" ng-click="doOpenTopic(topic.id)">{{topic.topic}}</li>
 			</ul>
 		</div>
 
 		<form ng-submit="doSearch()">
-		<div class="list list-inset search">
-			<label class="item item-input">
-				<i class="icon ion-search placeholder-icon"></i>
-				<input type="text" placeholder="Cari Buku" ng-model="search.text">
-			</label>
-		</div>
+			<div class="list list-inset search">
+				<label class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="text" placeholder="Cari Buku" ng-model="search.text">
+				</label>
+			</div>
 		</form>
+
+		<h2 class="section-title" ng-if="sectionTitle">
+			<span>{{sectionTitle}}</span>
+			<span class="spanicon icon ion-close-circled" ng-click="doReset()"></span>
+		</h2>
 		
 		<div class="cards books">
 			<div class="card book" ng-repeat="book in books track by $index" ng-click="openBook(book.biblio_id)">

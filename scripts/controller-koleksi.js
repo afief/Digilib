@@ -8,6 +8,7 @@ controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '
 		limit: limit
 	};
 
+	$scope.sectionTitle = '';
 	$scope.books = [];
 	$scope.total = 0;
 	$scope.search = {
@@ -33,6 +34,15 @@ controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '
 				$scope.books = $scope.books.concat(res.results);
 			}
 			$scope.total = res.params.total;
+
+			if (res.params && res.params.topic_name) {
+				$scope.sectionTitle = 'Kategori : ' + res.params.topic_name.toTitleCase();
+			} else if (res.params && res.params.title) {
+				$scope.sectionTitle = 'Pencarian : ' + res.params.title.toTitleCase();
+			} else {
+				$scope.sectionTitle = false;
+			}
+
 			$ionicLoading.hide();
 		}, function () {
 			 $ionicLoading.hide();
@@ -64,7 +74,18 @@ controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '
 		$scope.doRefresh(true);
 	};
 
-	$scope.$on('refresh', function() {
+	$scope.doOpenTopic = function(topicId) {
+		offset = 0;
+		limit = 10;
+		param = {
+			offset: offset,
+			limit: limit,
+			topic: topicId
+		};
+		$scope.doRefresh(true);
+	};
+
+	$scope.doReset = function () {
 		offset = 0;
 		limit = 10;
 		param = {
@@ -72,6 +93,10 @@ controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '
 			limit: limit
 		};
 		$scope.doRefresh(true);
+	};
+
+	$scope.$on('refresh', function() {
+		$scope.doReset();
 	});
 
 

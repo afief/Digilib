@@ -39,8 +39,11 @@ controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$l
 
 		return colors[id];
 	};
-	$scope.getBookThumbnail = function (argument) {
-		return argument;
+	$scope.getBookThumbnail = function (url) {
+		if (url) {
+			return url;
+		}
+		return '';
 		 //return "http://localhost/perpus/lib/phpthumb/phpThumb.php?src=../../images/docs/" + argument + "&w=100";
 	};
 

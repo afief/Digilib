@@ -9970,6 +9970,18 @@ hr {
       float: left;
       overflow: hidden; }
 
+.page-koleksi .section-title {
+  padding: 0px;
+  margin: 10px;
+  font-size: 1.2em;
+  color: #666;
+  position: relative;
+  padding-right: 30px; }
+  .page-koleksi .section-title .spanicon {
+    position: absolute;
+    right: 8px;
+    top: 0px; }
+
 .books .book {
   position: relative;
   box-sizing: border-box;
