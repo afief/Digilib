@@ -1,4 +1,4 @@
-controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '$ionicLoading', 'user', function($scope, $state, $ionicHistory, $ionicLoading, user) {
+controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '$ionicLoading', 'user', '$ionicSideMenuDelegate', function($scope, $state, $ionicHistory, $ionicLoading, user, $ionicSideMenuDelegate) {
 	console.info("Koleksi Controller");
 
 	var offset = 0;
@@ -98,6 +98,14 @@ controll.controller('KoleksiController', ['$scope', '$state', '$ionicHistory', '
 	$scope.$on('refresh', function() {
 		$scope.doReset();
 	});
+
+	$scope.onTopicDown = function() {
+		$ionicSideMenuDelegate.canDragContent(false);
+	};
+
+	$scope.onTopicUp = function() {
+		$ionicSideMenuDelegate.canDragContent(true);
+	};
 
 
 	$scope.getBG = function(id) {

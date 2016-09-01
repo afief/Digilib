@@ -1,12 +1,10 @@
 <ion-view view-title="Koleksi Buku">
+	<ion-content class="koleksi-topics" direction="x" overflow-scroll="false" on-touch="onTopicDown()" on-release="onTopicUp()">
+		<ul ng-style="{width: (topics.length * 140) + 'px'}">
+			<li ng-repeat="topic in topics track by $index" ng-style="{'background-color': getBG(topic.id)}" ng-click="doOpenTopic(topic.id)">{{topic.topic}}</li>
+		</ul>
+	</ion-content>
 	<ion-content class="page-koleksi">
-		
-		<div class="topics">
-			<ul ng-style="{width: (topics.length * 140) + 'px'}">
-				<li ng-repeat="topic in topics track by $index" ng-style="{'background-color': getBG(topic.id)}" ng-click="doOpenTopic(topic.id)">{{topic.topic}}</li>
-			</ul>
-		</div>
-
 		<form ng-submit="doSearch()">
 			<div class="list list-inset search">
 				<label class="item item-input">
