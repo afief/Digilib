@@ -224,6 +224,7 @@ hr {
 		}
 		&.loan {
 			border: solid 3px #ea6a6a;
+
 		}
 	}
 }
@@ -316,6 +317,13 @@ hr {
 					}
 				}
 			}
+		}
+	}
+	.card-ketersediaan {
+		.member-name {
+			font-weight: bold;
+			font-size: 1.1em;
+			color: #3b93ac;
 		}
 	}
 	.button-bar {
@@ -690,4 +698,27 @@ hr {
 	color: white;
 	right: 10px;
 	bottom: 0px;
+}
+
+.popup-member {
+	.content-member {
+		.bio {
+			.avatar {
+				width: 100px;
+				height: 100px;
+				margin: 0px auto;
+				border-radius: 50%;
+				background-size: contain;
+			}
+			.name {
+				text-align: center;
+				font-size: 1.3em;
+				font-weight: bold;
+				margin-top: 20px;
+			}
+			.email {
+				text-align: center;
+			}
+		}
+	}
 }

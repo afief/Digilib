@@ -1,4 +1,5 @@
-controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'user', '$ionicLoading', function($scope, $state, $ionicHistory, user, $ionicLoading) {
+controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'user', '$ionicLoading', '$ionicPopup',
+	function($scope, $state, $ionicHistory, user, $ionicLoading, $ionicPopup) {
 	console.info("Buku Controller");
 
 	$scope.id = $state.params.id;
@@ -30,6 +31,40 @@ controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'use
 		if (res.is_fav) {
 			$scope.isFavorit = true;
 		}
+	}
+
+	$scope.doOpenUser = function(memberId) {
+		console.log(memberId);
+
+		$ionicLoading.show({template: 'Mengambil data user'});
+		user.getUserByMemberId(memberId).then(function(res) {
+			$ionicLoading.hide();
+
+			openUser(res);
+		}, function() {
+			$ionicLoading.hide();
+		});
+	};
+
+	function openUser(member) {
+		$scope.member = member;
+
+		var popup = $ionicPopup.show({
+			title: 'Member Info',
+			cssClass: 'popup-member',
+			templateUrl: 'templates/popup-user.html',
+			scope: $scope,
+			buttons: [{
+				text: 'Tutup',
+				type: 'button-default'
+			}, {
+				text: 'Kirim Pesan',
+				type: 'button-positive',
+				onTap: function(e) {
+					$state.go('app.pesan-single', {member_id: member.member_id});
+				}
+			}]
+		});
 	}
 }]);
 

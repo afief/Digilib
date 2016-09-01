@@ -10087,6 +10087,11 @@ hr {
           font-size: 1.1em;
           font-weight: bold; }
 
+.book-detail .card-ketersediaan .member-name, .notif-page .card-ketersediaan .member-name {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #3b93ac; }
+
 .book-detail .button-bar, .notif-page .button-bar {
   padding: 0px; }
   .book-detail .button-bar .button, .notif-page .button-bar .button {
@@ -10372,3 +10377,19 @@ hr {
   color: white;
   right: 10px;
   bottom: 0px; }
+
+.popup-member .content-member .bio .avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0px auto;
+  border-radius: 50%;
+  background-size: contain; }
+
+.popup-member .content-member .bio .name {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-top: 20px; }
+
+.popup-member .content-member .bio .email {
+  text-align: center; }

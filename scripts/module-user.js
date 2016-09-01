@@ -350,6 +350,10 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 
 		getVersion: function(v) {
 			return createGetRequest('check-version/' + v);
+		},
+
+		getUserByMemberId: function(memberId) {
+			return createGetRequest('user/id/' + memberId);
 		}
 	};
 
