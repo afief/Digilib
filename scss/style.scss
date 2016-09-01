@@ -48,11 +48,13 @@ hr {
 		ion-header-bar.profile {
 			width: 100%;
 			display: table;
-			padding: 20px;
+			padding: 0px 20px;
 			text-align: center;
 			background-color: $color-main-darker;
 			color: white;
 			background-image: none;
+			box-sizing: border-box;
+			height: 190px;
 			.avatar {
 				width: 80px;
 				height: 80px;
@@ -66,6 +68,7 @@ hr {
 				font-weight: bold;
 				background-color: $color-main-darker;
 				color: white;
+				margin-top: 20px;
 			}
 			.name {
 				font-size: 1.2em;
@@ -141,34 +144,9 @@ hr {
 	}
 }
 .page-koleksi {
+	top: 104px;
 	.search {
 		margin: 10px;
-	}
-	.topics {
-		height: 60px;
-		overflow: hidden;
-		overflow-x: scroll;
-		padding: 10px 0px;
-		ul {
-			padding: 0px;
-			margin: 0px;
-			display: table;	
-			li {
-				font-size: 0.8em;
-				padding: 10px;
-				width: 130px;
-				height: 40px;
-				box-sizing: border-box;
-				text-align: center;
-				border-radius: 10px;
-				text-transform: capitalize;
-				border: solid 1px lighten($color-main, 45%);
-				background-color: lighten($color-main, 45%);
-				margin: 0px 5px;
-				float: left;
-				overflow: hidden;
-			}
-		}
 	}
 	.section-title {
 		padding: 0px;
@@ -181,6 +159,32 @@ hr {
 			position: absolute;
 			right: 8px;
 			top: 0px;
+		}
+	}
+}
+.koleksi-topics {
+	height: 60px;
+	padding: 10px 0px;
+	top: 44px;
+    background-image: url("../img/bg.png");
+	ul {
+		padding: 0px;
+		margin: 0px;
+		display: table;	
+		li {
+			font-size: 0.8em;
+			padding: 10px;
+			width: 130px;
+			height: 40px;
+			box-sizing: border-box;
+			text-align: center;
+			border-radius: 10px;
+			text-transform: capitalize;
+			border: solid 1px lighten($color-main, 45%);
+			background-color: lighten($color-main, 45%);
+			margin: 0px 5px;
+			float: left;
+			overflow: hidden;
 		}
 	}
 }
