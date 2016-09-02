@@ -354,6 +354,10 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 
 		getUserByMemberId: function(memberId) {
 			return createGetRequest('user/id/' + memberId);
+		},
+
+		sendReport: function(text) {
+			return createPostRequest('report', {text: text});
 		}
 	};
 

@@ -1,5 +1,5 @@
-controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'user', '$ionicLoading', '$ionicPopup',
-	function($scope, $state, $ionicHistory, user, $ionicLoading, $ionicPopup) {
+controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'user', '$ionicLoading', '$ionicPopup', '$timeout',
+	function($scope, $state, $ionicHistory, user, $ionicLoading, $ionicPopup, $timeout) {
 	console.info("Buku Controller");
 
 	$scope.id = $state.params.id;
@@ -61,7 +61,43 @@ controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'use
 				text: 'Kirim Pesan',
 				type: 'button-positive',
 				onTap: function(e) {
-					$state.go('app.pesan-single', {member_id: member.member_id});
+					$timeout(function() {
+						sendMessage(member.member_id);
+					}, 500);
+				}
+			}]
+		});
+	}
+
+	function sendMessage(memberId) {
+		$scope.input = {
+			member_id: memberId,
+			text: ''
+		};
+
+		var popup = $ionicPopup.show({
+			title: 'Kirim Pesan',
+			cssClass: 'new-message',
+			templateUrl: 'templates/popup-newmessage.html',
+			scope: $scope,
+			buttons: [{
+				text: 'Batal',
+				type: 'button-default'
+			}, {
+				text: 'Kirim',
+				type: 'button-positive',
+				onTap: function(e) {
+					e.preventDefault();
+					$ionicLoading.show({template: 'Mengirim Pesan'});
+					user.postMessage($scope.input.member_id, $scope.input.text).then(function() {
+						$ionicLoading.hide();
+						popup.close();
+					}, function(err) {
+						$ionicLoading.hide();
+						if (typeof(err) == 'string') {
+							alert(err);
+						}
+					});
 				}
 			}]
 		});

@@ -1,0 +1,19 @@
+<ion-view view-title="Pengaturan">
+	<ion-content class="page-about">
+		
+		<div class="card">
+			<div class="item item-divider">
+				Bantuan
+			</div>
+			<div class="item item-text-wrap">
+				Kirim Pertanyaan dan Saran ke dalam kotak di bawah ini untuk disampaikan ke Administrator Aplikasi
+			</div>
+			<div class="item">
+				<textarea ng-model="input.text" placeholder="Pertanyaan / Saran"></textarea>
+
+				<div class="button button-full button-icon-left icon-left ion-paper-airplane" ng-click="doSend()">Kirim</div>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>

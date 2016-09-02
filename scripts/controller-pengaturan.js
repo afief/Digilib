@@ -8,4 +8,12 @@ controll.controller('PengaturanController', ['$scope', '$state', '$location', '$
 		$location.path("/login");
 	};
 
+	$scope.doOpenAbout = function() {
+		$state.go('app.about');
+	};
+
+	$scope.doOpenSupport = function() {
+		$state.go('app.support');
+	};
+
 }]);

@@ -158,6 +158,25 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 		}
 	})
 
+	.state('app.about', {
+		url: '/about',
+		views: {
+			content: {
+				templateUrl: 'templates/about.html'
+			}
+		}
+	})
+
+	.state('app.support', {
+		url: '/support',
+		views: {
+			content: {
+				templateUrl: 'templates/support.html',
+				controller: 'SupportController'
+			}
+		}
+	})
+
 	.state('login', {
 		url: '/login',
 		templateUrl: 'templates/login.html',
