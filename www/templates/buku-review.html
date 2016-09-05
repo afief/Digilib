@@ -4,7 +4,7 @@
 			
 			<div class="banner-head">
 				<div class="title">{{book.title}}</div>
-				<div class="author">by {{book.author}}</div>
+				<div class="author">oleh <span ng-repeat="author in book.authors track by $index">{{($index > 0) ? ', ' : ''}}{{author.author_name}}</span></div>
 
 				<div class="button-bar">
 					<a class="button icon-left ion-ios-book" ui-sref="app.buku({id: id})">
