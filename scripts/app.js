@@ -1,4 +1,4 @@
-var mainApp = angular.module('digilib', ['ionic', 'controllers', 'UserModule', 'SettingModule', 'ngFileUpload']);
+var mainApp = angular.module('digilib', ['ionic', 'controllers', 'UserModule', 'SettingModule', 'ngFileUpload', 'PushModule']);
 
 mainApp.run(['$ionicConfig', '$ionicPlatform', '$ionicHistory', '$rootScope', 'user', '$ionicPopup', function($ionicConfig, $ionicPlatform, $ionicHistory, $rootScope, user, $ionicPopup) {
 
@@ -27,6 +27,11 @@ mainApp.run(['$ionicConfig', '$ionicPlatform', '$ionicHistory', '$rootScope', 'u
 
 	if (screen.lockOrientation) {
 		screen.lockOrientation('portrait');
+	}
+
+	if (window.cordova && window.cordova.plugins && window.cordova.plugins.autoStart) {
+		alert("autoStart");
+		cordova.plugins.autoStart.enable();
 	}
 
 	//$rootScope.user = user;
@@ -177,6 +182,11 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 		}
 	})
 
+	.state('login-home', {
+		url: '/login-home',
+		templateUrl: 'templates/login-home.html',
+		controller: 'LoginController'
+	})
 	.state('login', {
 		url: '/login',
 		templateUrl: 'templates/login.html',

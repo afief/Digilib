@@ -2,7 +2,7 @@ var userModule = angular.module("UserModule", [], ["$httpProvider", function($ht
 	$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 }]);
 
-userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", function($http, $q, $root, Upload, setting) {
+userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", "pushNotif", function($http, $q, $root, Upload, setting, pushNotif) {
 
 	window.f = $http;
 	
@@ -138,8 +138,13 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 					if (data.data && data.data.token) {
 						changeKey(data.data.token);
 
-						isLogin = true;		
+						isLogin = true;
 						ini.cek();
+
+						if (pushNotif.regId) {
+							ini.updateRegId(pushNotif.regId);
+						}
+
 						defer.resolve(true);
 					} else {
 						defer.reject("Gagal mengambil token login.");
@@ -253,9 +258,9 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 
 					$root.$broadcast("onuser", ini.profile);
 
-				} else if (data.hasOwnProperty("status")) {
+				} else if (data.hasOwnProperty("status") && (data.message == "forbidden")) {
 					changeKey("");
-					defer.resolve(data);
+					defer.reject(data);
 				} else if (data.hasOwnProperty('message')) {
 					defer.reject(data.message);
 				} else {
@@ -358,12 +363,16 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", fun
 
 		sendReport: function(text) {
 			return createPostRequest('report', {text: text});
+		},
+
+		updateRegId: function(regId) {
+			return createPostRequest('user/reg-id', {reg_id: regId});
 		}
 	};
 
 }]);
 
-userModule.run(["user", "$rootScope", "$http", "$ionicPlatform", "$location", function(user, $rootScope, $http, $ionicPlatform, $location) {
+userModule.run(["user", "$rootScope", "$http", "$ionicPlatform", "$location", "pushNotif", function(user, $rootScope, $http, $ionicPlatform, $location, pushNotif) {
 	$ionicPlatform.ready(function() {
 		console.log("Ionic Ready");
 		$rootScope.user = user;
@@ -372,5 +381,14 @@ userModule.run(["user", "$rootScope", "$http", "$ionicPlatform", "$location", fu
 		}, function() {
 			$location.path('/login');
 		});
+	});
+
+	$rootScope.$on("push-registered", function() {
+		console.log("push-registered");
+		if (user.isLoginLocal()) {
+			if (pushNotif.regId) {
+				user.updateRegId(pushNotif.regId);
+			}
+		}
 	});
 }]);

@@ -2,7 +2,7 @@ var controll = angular.module('controllers', []);
 
 controll.run(['$ionicPlatform', '$ionicHistory', '$rootScope', 'user', '$location', function($ionicPlatform, $ionicHistory, $rootScope, user, $location) {
 	if (!user.isLoginLocal()) {
-		$location.path('/login');
+		$location.path('/login-home');
 	}
 }]);
 

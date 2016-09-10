@@ -511,6 +511,27 @@ hr {
 }
 
 .page-login {
+	&.login-home {
+		.logo-big {
+			width: 50%;
+			margin-bottom: 0px;
+		}
+		.padding {
+			display: table;
+			margin: 10px auto;
+			width: 100%;
+			max-width: 300px;
+			.button {
+				margin-top: 0px;
+			}
+			p {
+				margin: 0px;
+				text-align: center;
+				margin-top: 20px;
+				color:#999;
+			}
+		}
+	}
 	h3 {
 		text-align: center;
 		color: #3b93ac;

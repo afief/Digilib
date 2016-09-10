@@ -5,6 +5,7 @@ controll.controller('PengaturanController', ['$scope', '$state', '$location', '$
 
 
 	$scope.doLogout = function() {
+		user.logout();
 		$location.path("/login");
 	};
 
