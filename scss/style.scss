@@ -334,7 +334,11 @@ hr {
 		padding: 0px;
 		.button {
 			line-height: 49px;
+			color: $color-main;
 		}
+	}
+	.item-icon-left {
+		color: $color-main;
 	}
 	&.notif-page {
 		padding: 10px;

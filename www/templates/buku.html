@@ -8,7 +8,7 @@
 
 				<div class="button-bar">
 					<a class="button active icon-left ion-ios-book" ui-sref="app.buku({id: id})">
-						About
+						Informasi
 					</a>
 					<a class="button icon-left ion-chatbubble" ui-sref="app.buku-review({id: id})">
 						Review
@@ -63,14 +63,6 @@
 				<div class="item item-text-wrap" ng-if="book.notes">
 					{{book.notes}}
 				</div>
-
-				<div class="item item-body button-bar">
-					<a class="button icon-left" ng-class="{'ion-ios-heart': isFavorit, 'ion-ios-heart-outline': !isFavorit}" ng-click="toggleFav()">Favorit
-					</a>
-					<a class="button icon-left ion-share">
-						Share
-					</a>
-				</div>
 			</div>
 
 			<div class="card card-ketersediaan list" ng-if="book.items">
@@ -79,13 +71,42 @@
 				</div>
 				<div class="item"  ng-repeat="item in book.items track by $index">
 					<h2>{{item.item_code}}</h2>
-					<p ng-if="!item.due_date">Tersedia</p>
-
-					<p ng-if="item.due_date">Dipinjam</p>
-					<p ng-if="item.due_date">Jatuh Tempo : {{item.due_date}}</p>
-
-					<p ng-if="item.due_date" class="member-name" ng-click="doOpenUser(item.member_id)">{{item.member_name}}</p>
+					<div ng-if="item.due_date">
+						<p>Dipinjam</p>
+						<p>Jatuh Tempo : {{item.due_date}}</p>
+						<p class="member-name" ng-click="doOpenUser(item.member_id)">{{item.member_name}}</p>
+					</div>
+					<div ng-if="!item.due_date && item.rev_member_id">
+						<p>Sudah direservasi oleh</p>
+						<div class="member-name" ng-click="doOpenUser(item.rev_member_id)">{{item.rev_member_id}}</div>
+					</div>
+					<div ng-if="!item.due_date && !item.rev_member_id">
+						<p>Tersedia</p>
+					</div>
 				</div>
+			</div>
+
+			<div class="card list">
+				<div class="item item-divider">
+					Aksi
+				</div>
+				<div class="item item-icon-left" ng-if="!isReserve" ng-click="doReservasi()">
+    				<i class="icon ion-flag"></i>
+    				Reservasi Buku
+    			</div>
+    			<div class="item item-icon-left" ng-if="isReserve" ng-click="dontReservasi()">
+    				<i class="icon ion-close"></i>
+    				Hapus Reservasi
+    			</div>
+    			<div class="item item-icon-left" ng-click="toggleFav()">
+    				<i class="icon" ng-class="{'ion-ios-heart': isFavorit, 'ion-ios-heart-outline': !isFavorit}"></i>
+    				<span ng-if="!isFavorit">Favoritkan</span>
+    				<span ng-if="isFavorit">Hapus Favorit</span>
+    			</div>
+    			<div class="item item-icon-left" ng-click="doShare()">
+    				<i class="icon ion-share"></i>
+    				Bagikan
+    			</div>
 			</div>
 		</div>
 	</ion-content>

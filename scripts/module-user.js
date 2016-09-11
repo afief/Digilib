@@ -326,6 +326,12 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", "pu
 		getBookLoans: function () {
 			 return createGetRequest('user/books');
 		},
+		setBookReserve: function(biblio_id) {
+			return createPostRequest('books/reserve', {biblio_id: biblio_id});
+		},
+		unsetBookReserve: function(biblio_id) {
+			return createPostRequest('books/unset-reserve', {biblio_id: biblio_id});
+		},
 
 		getMessageList: function() {
 			return createGetRequest('messages');

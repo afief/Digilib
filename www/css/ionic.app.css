@@ -10099,7 +10099,11 @@ hr {
 .book-detail .button-bar, .notif-page .button-bar {
   padding: 0px; }
   .book-detail .button-bar .button, .notif-page .button-bar .button {
-    line-height: 49px; }
+    line-height: 49px;
+    color: #3b93ac; }
+
+.book-detail .item-icon-left, .notif-page .item-icon-left {
+  color: #3b93ac; }
 
 .book-detail.notif-page, .notif-page.notif-page {
   padding: 10px; }

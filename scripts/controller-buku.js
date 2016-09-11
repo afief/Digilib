@@ -5,15 +5,20 @@ controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'use
 	$scope.id = $state.params.id;
 	$scope.book = false;
 	$scope.isFavorit = false;
+	$scope.isReserve = false;
 
-	$ionicLoading.show({template: "Mengambil Data Buku"});
-	user.getBook($scope.id).then(function (res) {
-		onGetBook(res);	
-		$ionicLoading.hide();
-	}, function(err) {
-		$ionicLoading.hide();
-		console.log(err);
-	});
+	$scope.doRefresh = function() {
+		$ionicLoading.show({template: "Mengambil Data Buku"});
+		user.getBook($scope.id).then(function (res) {
+			onGetBook(res);	
+			$ionicLoading.hide();
+		}, function(err) {
+			$ionicLoading.hide();
+			console.log(err);
+			$state.go('app.koleksi');
+		});
+	};
+	$scope.doRefresh();
 
 	$scope.toggleFav = function () {
 		if (!$scope.isFavorit) {
@@ -25,11 +30,49 @@ controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'use
 		}
 	};
 
+	$scope.doReservasi = function() {
+		if (!$scope.isReserve) {
+			user.setBookReserve($scope.book.biblio_id).then(function(res) {
+				$ionicPopup.alert({title: "Reservasi", template: res});
+				$scope.doRefresh();
+			}, function(err) {
+				if (typeof(err) == 'string') {
+					$ionicPopup.alert({title: "Reservasi", template: err});
+				}
+			});
+
+		} else {
+			$ionicPopup.alert({title: "Reservasi", template: "Sudah direservasi."});
+		}
+	};
+
+	$scope.dontReservasi = function() {
+		if ($scope.isReserve) {
+			user.unsetBookReserve($scope.book.biblio_id).then(function(res) {
+				$scope.doRefresh();
+			}, function(err) {
+				if (typeof(err) == 'string') {
+					$ionicPopup.alert({title: "Reservasi", template: err});
+				}
+			});
+
+		} else {
+			$ionicPopup.alert({title: "Reservasi", template: "Belum direservasi."});
+		}
+	};
+
 	function onGetBook(res) {
 		$scope.book = res;
 
 		if (res.is_fav) {
 			$scope.isFavorit = true;
+		} else {
+			$scope.isFavorit = false;
+		}
+		if (res.is_reserve) {
+			$scope.isReserve = true;
+		} else {
+			$scope.isReserve = false;
 		}
 	}
 
@@ -102,6 +145,16 @@ controll.controller('BukuController', ['$scope', '$state', '$ionicHistory', 'use
 			}]
 		});
 	}
+
+	$scope.doShare = function() {
+		if (window.hasOwnProperty('plugins') && window.plugins.hasOwnProperty('socialsharing')) {
+			window.plugins.socialsharing.share($scope.book.title, $scope.book.notes, $scope.book.image, webUrl + "index.php?p=show_detail&id=" + $scope.book.biblio_id);
+		}
+	};
+
+	$scope.$on('refresh', function() {
+		$scope.doRefresh();
+	});
 }]);
 
 controll.controller('BukuReviewController', ['$scope', '$state', '$ionicHistory', 'user', '$ionicLoading', '$ionicPopup',
@@ -116,14 +169,18 @@ controll.controller('BukuReviewController', ['$scope', '$state', '$ionicHistory'
 		comment: ""
 	};
 
-	$ionicLoading.show({template: "Mengambil Data Buku"});
-	user.getBook($scope.id).then(function (res) {
-		onGetBook(res);
-		 $ionicLoading.hide();
-	}, function(err) {
-		$ionicLoading.hide();
-		console.log(err);
-	});
+	$scope.doRefresh = function() {
+		$ionicLoading.show({template: "Mengambil Data Buku"});
+		user.getBook($scope.id).then(function (res) {
+			onGetBook(res);
+			 $ionicLoading.hide();
+		}, function(err) {
+			$ionicLoading.hide();
+			console.log(err);
+			$state.go('app.koleksi');
+		});
+	};
+	$scope.doRefresh();
 
 	$scope.setRating = function(n) {
 		$scope.rating = n;
@@ -165,4 +222,8 @@ controll.controller('BukuReviewController', ['$scope', '$state', '$ionicHistory'
 			$scope.comments = res;
 		});
 	}
+
+	$scope.$on('refresh', function() {
+		$scope.doRefresh();
+	});
 }]);
