@@ -1,14 +1,14 @@
-<ion-view view-title="Buku Pinjaman">
+<ion-view view-title="Reservasi">
 	<ion-content>
 
 		<div class="header">
 			<div class="icon ion-ios-book">
 			</div>
-			<div class="title">Catatan Peminjaman</div>
+			<div class="title">Daftar Reservasi Buku</div>
 		</div>
 
 		<div class="cards books">
-			<div class="card book" ng-repeat="book in books track by $index" ng-click="openBook(book.biblio_id)" ng-class="{loan: (book.is_return == '0')}">
+			<div class="card book" ng-repeat="book in books track by $index" ng-click="openBook(book.biblio_id)">
 				<div class="thumbnail" ng-style="{backgroundImage: 'url(' + getBookThumbnail(book.image) + ')'}" ng-show="book.image">
 				</div>
 				<div class="thumbnail" ng-hide="book.image" ng-style="{'background-color': getColor($index)}">
@@ -21,9 +21,7 @@
 					<div class="info">{{book.authors}}</div>
 					<div class="info">{{book.publisher_name}} {{book.publish_year}}</div>
 					<hr>
-					<div class="info">Tanggal Pinjam : <span class="v">{{book.loan_date | goodate}}</span></div>
-					<div class="info">Jatuh Tempo : <span class="v">{{book.loan_date | goodate}}</span></div>
-					<div class="info">Tanggal Pengembalian : <span class="v">{{book.return_date | goodate}}</span></div>
+					<div class="info">Tanggal Reservasi : <span class="v">{{book.reserve_date | goodate}}</span></div>
 				</div>
 			</div>
 		</div>

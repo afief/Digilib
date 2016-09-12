@@ -1,9 +1,9 @@
-controll.controller('PinjamanController', ['$scope', '$state', '$ionicHistory', 'user', function($scope, $state, $ionicHistory, user) {
-	console.info('PinjamanController');
+controll.controller('ReservasiController', ['$scope', '$state', '$ionicHistory', 'user', function($scope, $state, $ionicHistory, user) {
+	console.info('ReservasiController');
 
 	$scope.books = [];
 	$scope.doRefresh = function() {
-		user.getBookLoans().then(function(res){
+		user.getBookReserve().then(function(res){
 			console.log(res);
 			$scope.books = res;
 		});
@@ -20,6 +20,7 @@ controll.controller('PinjamanController', ['$scope', '$state', '$ionicHistory', 
 	});
 
 	$scope.openBook = function(n) {
+		console.log("Open " + n);
 		$state.go("app.buku", {id: n});
 	};
 

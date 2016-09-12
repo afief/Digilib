@@ -8,11 +8,19 @@ var app_version_text = '0.3.5';
 
 var webUrl = "http://perpustakaansd.labschool.upi.edu/";
 
-//var apiUrl = "http://192.168.88.24/perpus/api/";
-var apiUrl = "http://perpustakaansd.labschool.upi.edu/api/";
+var apiUrl = "http://localhost/perpus/api/";
+//var apiUrl = "http://perpustakaansd.labschool.upi.edu/api/";
 
 
 //PROTOTYPES
 String.prototype.toTitleCase = function() {
 	return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
+
+Number.prototype.toStringZero = function(n) {
+	var isM = this < 0;
+	var ns = Math.abs(this).toString();
+	while (ns.length < n) ns = '0' + ns;
+	if (isM) ns = '-' + ns;
+	return ns;
 };

@@ -294,6 +294,10 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", "pu
 			return createPostRequest('user', bio);
 		},
 
+		updateUserSetting: function(setting) {
+			return createPostRequest('user/setting', setting);
+		},
+
 		getBooks: function (params) {
 			var str = "";
 			if (params) {
@@ -325,6 +329,9 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", "pu
 
 		getBookLoans: function () {
 			 return createGetRequest('user/books');
+		},
+		getBookReserve: function() {
+			return createGetRequest('books/reserve');
 		},
 		setBookReserve: function(biblio_id) {
 			return createPostRequest('books/reserve', {biblio_id: biblio_id});

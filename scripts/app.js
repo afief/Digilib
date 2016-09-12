@@ -133,6 +133,16 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 		}
 	})
 
+	.state('app.reservasi', {
+		url: '/reservasi',
+		views: {
+			content: {
+				templateUrl: 'templates/reservasi.html',
+				controller: 'ReservasiController'
+			}
+		}
+	})
+
 	.state('app.favorit', {
 		url: '/favorit',
 		views: {
@@ -204,3 +214,17 @@ mainApp.config(["$stateProvider", "$urlRouterProvider", "$ionicConfigProvider", 
 
  
 }]);
+
+
+mainApp.filter('goodate', function() {
+  return function(input) {
+  	if (input) {
+	  	var d = new Date(input);
+	  	var m = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+	  	var r = d.getDate() + " " + m[d.getMonth()] + " " + d.getFullYear() + ", " + d.getHours().toStringZero(2) + ":" + d.getMinutes().toStringZero(2);
+	  	return r;
+	  } else {
+	  	return "-";
+	  }
+  };
+});

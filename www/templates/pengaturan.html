@@ -9,7 +9,7 @@
 				<i class="icon ion-ios-email"></i>
 				Via Email
 				<label class="toggle toggle-positive">
-					<input type="checkbox">
+					<input type="checkbox" ng-model="setting.notif_email" ng-click="doUpdateSetting()">
 					<div class="track">
 						<div class="handle"></div>
 					</div>
@@ -19,7 +19,7 @@
 				<i class="icon ion-ipad"></i>
 				Via Aplikasi
 				<label class="toggle toggle-positive">
-					<input type="checkbox">
+					<input type="checkbox" ng-model="setting.notif_app"  ng-click="doUpdateSetting()">
 					<div class="track">
 						<div class="handle"></div>
 					</div>

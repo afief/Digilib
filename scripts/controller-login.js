@@ -1,4 +1,4 @@
-controll.controller('LoginController', ['$scope', '$location', '$ionicHistory', 'user', '$ionicPopup', '$ionicLoading', function($scope, $location, $ionicHistory, user, $ionicPopup, $ionicLoading) {
+controll.controller('LoginController', ['$scope', '$location', '$state', '$ionicHistory', 'user', '$ionicPopup', '$ionicLoading', function($scope, $location, $state, $ionicHistory, user, $ionicPopup, $ionicLoading) {
 	console.info('LoginController');
 
 	$ionicHistory.clearHistory();
@@ -22,7 +22,7 @@ controll.controller('LoginController', ['$scope', '$location', '$ionicHistory', 
 		} else {
 			$ionicLoading.show({template: "Memproses Login"});
 			user.login($scope.data.username, $scope.data.password).then(function(res) {
-				$location.path("/app/koleksi");
+				$state.go('app.koleksi');
 				$ionicLoading.hide();
 			}, function(err) {
 				$ionicLoading.hide();
@@ -35,13 +35,13 @@ controll.controller('LoginController', ['$scope', '$location', '$ionicHistory', 
 	};
 
 	$scope.openRegister = function() {
-		$location.path('register');
+		$state.go('register');
 	};
 
 }]);
 
 
-controll.controller('RegisterController', ['$scope', '$location', '$ionicHistory', 'user', '$ionicPopup', '$ionicLoading', function($scope, $location, $ionicHistory, user, $ionicPopup, $ionicLoading) {
+controll.controller('RegisterController', ['$scope', '$location', '$state', '$ionicHistory', 'user', '$ionicPopup', '$ionicLoading', function($scope, $location, $state, $ionicHistory, user, $ionicPopup, $ionicLoading) {
 	console.log("RegisterController");
 
 	$scope.data = {
@@ -53,7 +53,7 @@ controll.controller('RegisterController', ['$scope', '$location', '$ionicHistory
 	};
 
 	$scope.openLogin = function() {
-		$location.path('login');
+		$state.go('login');
 	};
 
 	$scope.doRegister = function() {
@@ -92,7 +92,7 @@ controll.controller('RegisterController', ['$scope', '$location', '$ionicHistory
 		} else {
 			$ionicLoading.show({template: "Memproses Registrasi"});
 			user.register($scope.data).then(function() {
-				$location.path('/app/koleksi');
+				$state.go('app.koleksi');
 				$ionicLoading.hide();
 			}, function(err) {
 				$ionicLoading.hide();

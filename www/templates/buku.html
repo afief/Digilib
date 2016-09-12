@@ -73,7 +73,7 @@
 					<h2>{{item.item_code}}</h2>
 					<div ng-if="item.due_date">
 						<p>Dipinjam</p>
-						<p>Jatuh Tempo : {{item.due_date}}</p>
+						<p>Jatuh Tempo : {{item.due_date | goodate}}</p>
 						<p class="member-name" ng-click="doOpenUser(item.member_id)">{{item.member_name}}</p>
 					</div>
 					<div ng-if="!item.due_date && item.rev_member_id">
