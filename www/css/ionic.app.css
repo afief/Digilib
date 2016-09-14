@@ -9867,6 +9867,23 @@ hr {
     .view .nav-bar-container .bar.bar-header .buttons .button .icon {
       font-size: 32px;
       display: block; }
+  .view .nav-bar-container .bar.bar-header .buttons .left-buttons {
+    position: relative; }
+    .view .nav-bar-container .bar.bar-header .buttons .left-buttons span.number {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      background-color: #3b93ac;
+      width: 20px;
+      z-index: 10;
+      text-align: center;
+      line-height: 20px;
+      margin: 0px;
+      padding: 0px;
+      display: block;
+      border-radius: 50%;
+      font-size: 0.8em;
+      font-weight: normal; }
 
 .view .menu ion-header-bar.profile {
   width: 100%;
@@ -9924,6 +9941,8 @@ hr {
       display: block;
       font-size: 1.5em;
       margin-right: 10px; }
+    .view .menu ion-content .list .item.notif {
+      color: #f2ff47; }
 
 .view .view-container ion-content {
   background-image: url("../img/bg.png"); }

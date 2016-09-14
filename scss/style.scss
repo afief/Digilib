@@ -5,6 +5,8 @@ $color-main-lightest: lighten($color-main, 60);
 
 $color-secondary: #FFEB3B;
 
+$color-notif: #f2ff47;
+
 @import "ionic-override";
 
 body {
@@ -24,6 +26,7 @@ hr {
 				font-weight: bold;
 				color: white;
 				.buttons {
+					
 					&.back-button {
 						color: white;
 						margin-right: 15px;
@@ -38,6 +41,25 @@ hr {
 						.icon {
 							font-size: 32px;
 							display: block;
+						}
+					}
+					.left-buttons {
+						position: relative;
+						span.number {
+							position: absolute;
+							right: 0px;
+							bottom: 0px;
+							background-color: $color-main;
+							width: 20px;
+							z-index: 10;
+							text-align: center;
+							line-height: 20px;
+							margin: 0px;
+							padding: 0px;
+							display: block;
+							border-radius: 50%;
+							font-size: 0.8em;
+							font-weight: normal;
 						}
 					}
 				}
@@ -109,6 +131,9 @@ hr {
 						display: block;
 						font-size: 1.5em;
 						margin-right: 10px;
+					}
+					&.notif {
+						color: $color-notif;
 					}
 				}
 			}

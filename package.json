@@ -34,7 +34,9 @@
       "locator": "phonegap-plugin-push",
       "id": "phonegap-plugin-push"
     },
-    "cordova-plugin-x-socialsharing"
+    "cordova-plugin-x-socialsharing",
+    "cordova-plugin-file-transfer",
+    "cordova-plugin-image-picker"
   ],
   "cordovaPlatforms": [
     "android"

@@ -26,7 +26,7 @@ pushModule.run(["pushNotif", "$rootScope", "$ionicPlatform", "$location", "$time
 			var push = PushNotification.init({
 				android: {
 					senderID: SENDER_ID,
-					forceShow: true,
+					forceShow: false,
 					badge: true
 				},
 				ios: {
@@ -48,11 +48,7 @@ pushModule.run(["pushNotif", "$rootScope", "$ionicPlatform", "$location", "$time
 			    console.log(data);
 			    if (data.hasOwnProperty('additionalData')) {
 			    	var addData = data.additionalData;
-			    	if (addData.hasOwnProperty('path') && (addData.path !== "")) {
-			    		$timeout(function() {
-			    			$location.path(addData.path);
-			    		}, 200);
-			    	}
+			    	$root.$broadcast("notification", addData);
 			    }
 			});
 

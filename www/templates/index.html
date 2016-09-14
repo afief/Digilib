@@ -8,6 +8,7 @@
 			<ion-nav-buttons side="left">
 				<button class="button" menu-toggle="left" ng-hide="isBackButtonShow()">
 					<i class="icon ion-navicon"></i>
+					<span class="number" ng-if="notifCount > 0">{{notifCount}}</span>
 				</button>
 			</ion-nav-buttons>
 			<ion-nav-buttons side="right">
@@ -42,9 +43,9 @@
 					<span>Koleksi Buku</span>
 				</a>
 
-				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/pemberitahuan">
+				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/pemberitahuan" ng-class="{notif: (notifCount > 0)}">
 					<span class="icon ion-android-notifications"></span>
-					<span>Pemberitahuan</span>
+					<span><span ng-if="notifCount">{{notifCount}} &nbsp; </span>Pemberitahuan</span>
 				</a>
 
 				<a class="item menu-close item-icon-left listViewSideBar" href="#/app/pesan">

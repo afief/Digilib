@@ -1,4 +1,4 @@
-controll.controller('PemberitahuanController', ['$scope', '$state', '$ionicHistory', 'user', '$ionicLoading', function($scope, $state, $ionicHistory, user, $ionicLoading) {
+controll.controller('PemberitahuanController', ['$rootScope', '$scope', '$state', '$ionicHistory', 'user', '$ionicLoading', function($root, $scope, $state, $ionicHistory, user, $ionicLoading) {
 	console.info("PemberitahuanController");
 
 	$ionicHistory.clearHistory();
@@ -23,6 +23,11 @@ controll.controller('PemberitahuanController', ['$scope', '$state', '$ionicHisto
 	});	
 
 	$scope.doRefresh();
+
+	$scope.$on("$ionicView.enter", function() {
+		$root.notifCount = 0;
+		$scope.doRefresh();
+	});
 
 
 	function reads() {

@@ -1,9 +1,46 @@
 var controll = angular.module('controllers', []);
 
-controll.run(['$ionicPlatform', '$ionicHistory', '$rootScope', 'user', '$location', function($ionicPlatform, $ionicHistory, $rootScope, user, $location) {
+controll.run(['$rootScope', '$ionicPlatform', '$ionicHistory', '$rootScope', 'user', '$location', '$timeout', function($root, $ionicPlatform, $ionicHistory, $rootScope, user, $location, $timeout) {
 	if (!user.isLoginLocal()) {
 		$location.path('/login-home');
 	}
+
+	$root.notifCount = 0;
+
+	/* Handle Notifikasi */
+	$root.$on('notification', function(event, res) {
+		console.log(res, $location.$$path, res.path);
+
+		$timeout(function() {
+			if (res.foreground) {
+
+				if ($location.$$path.indexOf(res.path) >= 0) {
+					console.log("refresh");
+					$root.$broadcast("refresh");
+				} else {
+					if ($location.$$path == "/app/pemberitahuan") {
+						$root.$broadcast("refresh");
+						$root.notifCount = 0;
+					} else {
+						$root.notifCount++;
+					}
+				}
+
+			} else {
+				if (res.path) {
+					$location.path(res.path);
+				}
+			}
+		}, 1000);
+	});
+
+	/*$timeout(function() {
+		$rootScope.$broadcast("notification", {
+	        "message": "Notifikasi dari Perpustakaan Labschool UPI. Oke?",
+	        "title": "Mobile APP Library 2.0",
+	        "path": "/app/pesan"
+    	});	
+	}, 2000);*/
 }]);
 
 

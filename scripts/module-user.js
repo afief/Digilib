@@ -175,6 +175,11 @@ userModule.factory("user", ["$http","$q", "$rootScope", "Upload", "setting", "pu
 
 						isLogin = true;		
 						ini.cek();
+
+						if (pushNotif.regId) {
+							ini.updateRegId(pushNotif.regId);
+						}
+						
 						defer.resolve(true);
 					} else {
 						defer.reject("Gagal mengambil token login.");

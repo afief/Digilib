@@ -1,4 +1,4 @@
-controll.controller('ProfilController', ['$scope', '$state', '$ionicHistory', 'user', '$ionicLoading', function($scope, $state, $ionicHistory, user, $ionicLoading) {
+controll.controller('ProfilController', ['$scope', '$state', '$ionicHistory', 'user', '$ionicLoading', '$timeout', '$ionicPopup', function($scope, $state, $ionicHistory, user, $ionicLoading, $timeout, $ionicPopup) {
 	console.info('ProfilController');
 
 	$ionicHistory.clearHistory();
@@ -50,7 +50,24 @@ controll.controller('ProfilController', ['$scope', '$state', '$ionicHistory', 'u
 	};
 
 	$scope.doChangeAvatar = function() {
-		document.getElementById("userImageEl").click();
+		if (window.imagePicker) {
+			window.imagePicker.getPictures(
+			function(results) {
+				if (results.length > 0) {
+					uploadFile(results[0]);
+				} else {
+					alert("Image Not Detected");
+				}
+			}, function (error) {
+				alert('Error: ' + error);
+			}, {
+				maximumImagesCount: 1,
+				width: 200
+			});
+		} else {
+			alert("tanpa imagePicker");
+			document.getElementById("userImageEl").click();
+		}
 	};
 	
 	$scope.changeImage = function(f) {
@@ -61,10 +78,10 @@ controll.controller('ProfilController', ['$scope', '$state', '$ionicHistory', 'u
 			user.changeAvatar(file).then(function(url) {
 				$ionicLoading.hide();
 
-				user.profile.member_image = url;
+				$timeout(function() {
+					user.profile.member_image = url;
+				}, 200);
 
-				if (!$scope.$$phase)
-					$scope.$apply();
 			}, function(err) {
 				$ionicLoading.hide();
 				if (typeof(err) == 'string') {
@@ -75,5 +92,48 @@ controll.controller('ProfilController', ['$scope', '$state', '$ionicHistory', 'u
 			});
 		}
 	};
+
+	function uploadFile(fileURL) {
+		/* upload avatar ke server */
+		if (FileUploadOptions && FileTransfer) {
+			$ionicLoading.show({template: "Ganti Profil"});
+
+			var options = new FileUploadOptions();
+			options.fileKey = "file";
+			options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+			options.mimeType = "image/jpg";
+
+			var headers = {'token': user.getKey()};
+			options.headers = headers;
+
+			var ft = new FileTransfer();
+			ft.upload(fileURL, encodeURI(apiUrl + "user/avatar"), function(res) {
+				$ionicLoading.hide();
+				try {
+					var dres = JSON.parse(res.response);
+					if (dres.status) {
+
+						$timeout(function() {
+							user.profile.member_image = dres.data;
+						}, 200);
+						
+						return;
+					} else {
+						alert("gagal : " + res.response);
+					}
+				} catch (e) {
+					alert("error : " + res.response);
+				}
+
+				//success callback
+			}, function() {
+				//error callback
+				$ionicLoading.hide();
+				$ionicPopup.alert({template: "Ganti Avatar Gagal.", title: "Gagal"});
+			}, options);
+		} else {
+			$ionicPopup.alert("Kesalahan pengolahan gambar.");
+		}
+	}
 
 }]);
