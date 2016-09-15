@@ -625,6 +625,11 @@ hr {
 		color: #444;
 		margin: 20px 0px;
 	}
+	h3 {
+		font-size: 1.3em;
+		color: #666;
+		margin: 0px;
+	}
 	p {
 		color: #444;
 		line-height: 1.5em;
@@ -798,4 +803,16 @@ hr {
 			}
 		}
 	}
+}
+
+.empty-page {
+	display: block;
+	width: 90%;
+	padding: 40px 10px;
+	text-align: center;
+	color: $color-main;
+	background-color: white;
+	border-radius: 10px;
+	border: dashed 2px;
+	margin: 0px 5%;
 }

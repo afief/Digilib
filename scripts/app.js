@@ -34,6 +34,10 @@ mainApp.run(['$ionicConfig', '$ionicPlatform', '$ionicHistory', '$rootScope', 'u
 		cordova.plugins.autoStart.enable();
 	}
 
+	$rootScope.getVersion = function() {
+		return app_version_text;
+	};
+
 	//$rootScope.user = user;
 
 }]);

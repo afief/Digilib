@@ -24,6 +24,11 @@
 					<div class="info">Tanggal Reservasi : <span class="v">{{book.reserve_date | goodate}}</span></div>
 				</div>
 			</div>
+
+			<div ng-if="!messages.length" class="empty-page">
+				Tidak ada buku yang direservasi. <br><br>
+				Untuk reservasi buku, klik <b>Reservasi Buku</b> di halaman <b>Informasi Buku</b>
+			</div>
 		</div>
 
 	</ion-content>

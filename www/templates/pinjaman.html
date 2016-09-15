@@ -26,6 +26,12 @@
 					<div class="info">Tanggal Pengembalian : <span class="v">{{book.return_date | goodate}}</span></div>
 				</div>
 			</div>
+
+			<div ng-if="!books.length" class="empty-page">
+				Belum ada buku yang dipinjam. <br><br>
+
+				Buku yang Anda pinjam melalui perpustakaan akan muncul pada halaman ini.
+			</div>
 		</div>
 
 	</ion-content>

@@ -117,5 +117,7 @@ controll.controller('IndexController', ['$scope', '$state', '$ionicHistory', '$l
 
 	$scope.doViewHelp = function() {
 		$scope.popTopRight.hide();
+
+		window.open(apiUrl + '/faq', "_system");
 	};
 }]);

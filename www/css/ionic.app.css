@@ -10316,6 +10316,11 @@ hr {
   color: #444;
   margin: 20px 0px; }
 
+.page-about h3 {
+  font-size: 1.3em;
+  color: #666;
+  margin: 0px; }
+
 .page-about p {
   color: #444;
   line-height: 1.5em; }
@@ -10455,3 +10460,14 @@ hr {
 
 .popup-member .content-member .bio .email {
   text-align: center; }
+
+.empty-page {
+  display: block;
+  width: 90%;
+  padding: 40px 10px;
+  text-align: center;
+  color: #3b93ac;
+  background-color: white;
+  border-radius: 10px;
+  border: dashed 2px;
+  margin: 0px 5%; }

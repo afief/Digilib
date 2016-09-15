@@ -30,6 +30,11 @@
 					</div>
 				</div>
 			</div>
+
+			<div ng-if="!messages.length" class="empty-page">
+				Tidak ada buku yang difavoritkan. <br><br>
+				Untuk menyimpan buku-buku favorit pada halaman ini, klik <b>Favoritkan</b> di halaman <b>Informasi Buku</b>
+			</div>
 		</div>
 
 		<button class="button button-full button-primary" ng-click="doLoadMore()" ng-show="canLoadMore()">

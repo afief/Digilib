@@ -10,5 +10,15 @@
 
 		</div>
 
+		<div class="padding">
+			<h2>Versi</h2>
+			<h3>{{getVersion()}}</h3>
+		</div>
+
+		<div class="padding" ng-if="user.profile.gcm">
+			<h2>Registraion ID</h2>
+			<h3>{{user.profile.gcm}}</h3>
+		</div>
+
 	</ion-content>
 </ion-view>

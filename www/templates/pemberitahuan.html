@@ -2,15 +2,19 @@
 	<ion-content>
 		<div class="notif-page">
 			<div class="wrapper">
-				<div class="list notifications">
+				<div class="list notifications" ng-if="notifs['data'].length">
 
 					<div class="item item-avatar" ng-repeat="notif in notifs['data'] track by $index" ng-class="{unread: (notif.is_read == '0')}" ng-click="doOpen(notif)">
 						<img ng-src="{{getMemberAvatar(notif.from_image)}}" alt="">
 						
 						<h2><b>{{notif.from_name}}</b> {{notif.text}}</h2>
-						<p>{{notif.timestamp}}</p>							
+						<p>{{notif.timestamp | goodate}}</p>							
 					</div>
 
+				</div>
+
+				<div ng-if="!notif['data']" class="empty-page">
+					Belum ada pemberitahuan
 				</div>
 			</div>
 		</div>
