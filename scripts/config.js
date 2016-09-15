@@ -8,8 +8,8 @@ var app_version_text = '0.4.5';
 
 var webUrl = "http://perpustakaansd.labschool.upi.edu/";
 
-var apiUrl = "http://localhost/perpus/api/";
-//var apiUrl = "http://perpustakaansd.labschool.upi.edu/api/";
+//var apiUrl = "http://localhost/perpus/api/";
+var apiUrl = "http://perpustakaansd.labschool.upi.edu/api/";
 
 
 //PROTOTYPES
